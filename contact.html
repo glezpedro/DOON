@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Reserva el stand DOÓN Specialty Coffee para tu evento deportivo. Formulario de contacto para organizadores de eventos." />
+  <title>Contacto y Reservas — DOÓN Specialty Coffee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="DOÓN Specialty Coffee — Inicio">
+        <span class="nav__logo-wordmark">DOÓN</span>
+        <span class="nav__logo-sub">Specialty Coffee</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Inicio</a></li>
+        <li><a href="about.html" class="nav__link">Nosotros</a></li>
+        <li><a href="menu.html" class="nav__link">Menú</a></li>
+        <li><a href="gallery.html" class="nav__link">Galería</a></li>
+      </ul>
+      <a href="contact.html" class="nav__cta nav__link--active">Reserva tu stand</a>
+      <button class="nav__hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" id="hamburger-btn">
+        <span class="nav__hamburger-line"></span>
+        <span class="nav__hamburger-line"></span>
+        <span class="nav__hamburger-line"></span>
+      </button>
+    </div>
+    <nav class="nav__mobile-menu" id="mobile-menu" aria-label="Menú móvil" aria-hidden="true">
+      <a href="index.html" class="nav__mobile-link">Inicio</a>
+      <a href="about.html" class="nav__mobile-link">Nosotros</a>
+      <a href="menu.html" class="nav__mobile-link">Menú</a>
+      <a href="gallery.html" class="nav__mobile-link">Galería</a>
+      <a href="contact.html" class="nav__mobile-cta">Reserva tu stand</a>
+    </nav>
+  </nav>
+
+  <main id="main-content" class="page-content">
+
+    <!-- HERO -->
+    <section class="contact-hero" aria-labelledby="contact-page-heading">
+      <div class="container" style="position: relative; z-index: 1;">
+        <span class="about-hero__label" style="color: var(--color-brown); border-color: rgba(92,48,40,0.3);" class="animate-fade-up animate-delay-1">Para organizadores</span>
+        <h1 class="contact-hero__title animate-fade-up animate-delay-2" id="contact-page-heading">
+          Reserva<br>tu stand
+        </h1>
+        <p class="contact-hero__body animate-fade-up animate-delay-3">¿Organizas un evento deportivo? Cuéntanos los detalles y te preparamos una propuesta a medida. Solo necesitamos tu historia.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section section" aria-labelledby="contact-form-heading">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- FORM -->
+          <div>
+            <h2 class="section-header__title" id="contact-form-heading" style="font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 2rem;">Cuéntanos sobre tu evento</h2>
+
+            <form class="booking-form" id="booking-form" novalidate aria-label="Formulario de reserva de stand">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="name">Nombre completo <span aria-hidden="true">*</span></label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Tu nombre"
+                    autocomplete="name"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="org">Organización / Club</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="org"
+                    name="org"
+                    placeholder="Nombre de tu organización"
+                    autocomplete="organization"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="email">Email <span aria-hidden="true">*</span></label>
+                  <input
+                    class="form-input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="tu@email.com"
+                    autocomplete="email"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="phone">Teléfono</label>
+                  <input
+                    class="form-input"
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+34 600 000 000"
+                    autocomplete="tel"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="event-type">Tipo de evento deportivo <span aria-hidden="true">*</span></label>
+                <select class="form-select" id="event-type" name="event-type" required aria-required="true">
+                  <option value="" disabled selected>Selecciona el tipo de evento</option>
+                  <option value="running">Carrera / Running</option>
+                  <option value="cycling">Ciclismo / Cycling</option>
+                  <option value="crossfit">CrossFit / Fitness</option>
+                  <option value="triathlon">Triatlón</option>
+                  <option value="football">Fútbol</option>
+                  <option value="padel">Pádel / Tenis</option>
+                  <option value="hiking">Senderismo / Trail</option>
+                  <option value="climbing">Escalada</option>
+                  <option value="swimming">Natación</option>
+                  <option value="other">Otro evento deportivo</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="event-date">Fecha del evento <span aria-hidden="true">*</span></label>
+                  <input
+                    class="form-input"
+                    type="date"
+                    id="event-date"
+                    name="event-date"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="attendees">Número de participantes estimados <span aria-hidden="true">*</span></label>
+                  <select class="form-select" id="attendees" name="attendees" required aria-required="true">
+                    <option value="" disabled selected>Nº de asistentes</option>
+                    <option value="under-50">Menos de 50</option>
+                    <option value="50-150">50 – 150</option>
+                    <option value="150-300">150 – 300</option>
+                    <option value="300-500">300 – 500</option>
+                    <option value="500+">Más de 500</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="location">Ciudad / Localización del evento</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Ciudad o lugar del evento"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="duration">Duración del evento</label>
+                  <select class="form-select" id="duration" name="duration">
+                    <option value="" disabled selected>Duración estimada</option>
+                    <option value="half-day">Menos de 4 horas</option>
+                    <option value="full-day">Un día completo</option>
+                    <option value="weekend">Fin de semana (2 días)</option>
+                    <option value="multi-day">Varios días</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="setup">Configuración de stand preferida</label>
+                <select class="form-select" id="setup" name="setup">
+                  <option value="" disabled selected>Selecciona configuración</option>
+                  <option value="standard">Estándar (Espresso + 1 molinillo)</option>
+                  <option value="full">Completo (Espresso + 2 molinillos + MoccaMaster)</option>
+                  <option value="unsure">No sé, necesito asesoramiento</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="other-services">¿Hay otros servicios de hostelería en el evento?</label>
+                <select class="form-select" id="other-services" name="other-services">
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="no">No, DOÓN sería el único servicio</option>
+                  <option value="yes-food">Sí, hay servicios de comida</option>
+                  <option value="yes-other">Sí, hay otros servicios de bebida</option>
+                  <option value="yes-both">Sí, hay comida y bebida</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Información adicional / Mensaje</label>
+                <textarea
+                  class="form-textarea"
+                  id="message"
+                  name="message"
+                  placeholder="Cuéntanos cualquier detalle adicional sobre tu evento: público objetivo, temática, necesidades especiales, preguntas..."
+                  aria-describedby="message-hint"
+                ></textarea>
+                <p id="message-hint" style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.3rem;">Opcional, pero nos ayuda a preparar la mejor propuesta para tu evento.</p>
+              </div>
+
+              <div style="display: flex; align-items: start; gap: 0.75rem; padding: 1rem; background-color: var(--color-cream-dark); border-radius: 12px;">
+                <input type="checkbox" id="privacy" name="privacy" required aria-required="true" style="margin-top: 3px; accent-color: var(--color-brown); width: 16px; height: 16px; flex-shrink: 0;" />
+                <label for="privacy" style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.5; cursor: pointer;">
+                  He leído y acepto la política de privacidad. Mis datos serán utilizados únicamente para gestionar esta solicitud de reserva y contactarme sobre la misma. <span aria-hidden="true">*</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn--lg btn--primary" style="width: 100%; justify-content: center;" aria-label="Enviar solicitud de reserva">
+                Enviar solicitud de reserva →
+              </button>
+            </form>
+
+            <!-- Success message (hidden by default) -->
+            <div id="form-success" role="alert" aria-live="polite" style="display: none; padding: 2rem; background-color: var(--color-olive); border-radius: 16px; text-align: center; color: var(--color-cream);">
+              <p style="font-family: var(--font-display); font-weight: 900; font-size: 2rem; text-transform: uppercase; margin-bottom: 0.5rem;">¡Recibido! ✓</p>
+              <p style="opacity: 0.8;">Hemos recibido tu solicitud. Nos pondremos en contacto contigo en menos de 48 horas para hablar sobre tu evento.</p>
+            </div>
+          </div>
+
+          <!-- SIDEBAR INFO -->
+          <aside aria-label="Información logística y de contacto">
+
+            <!-- Logistics Card -->
+            <div class="logistics-card">
+              <h2 class="logistics-card__title">Necesidades Logísticas</h2>
+              <ul class="logistics-list" role="list">
+                <li class="logistics-list__item">
+                  <span class="logistics-list__item-icon" aria-hidden="true">⏱</span>
+                  <span><strong>Montaje:</strong> Mínimo 1 hora y 30 minutos antes del inicio del evento</span>
+                </li>
+                <li class="logistics-list__item">
+                  <span class="logistics-list__item-icon" aria-hidden="true">📐</span>
+                  <span><strong>Espacio:</strong> 4,5 × 3 metros (mínimo) para el stand completo</span>
+                </li>
+                <li class="logistics-list__item">
+                  <span class="logistics-list__item-icon" aria-hidden="true">⚡</span>
+                  <span><strong>Electricidad:</strong> Acceso a punto de corriente para la maquinaria de espresso</span>
+                </li>
+                <li class="logistics-list__item">
+                  <span class="logistics-list__item-icon" aria-hidden="true">🚐</span>
+                  <span><strong>Acceso:</strong> Zona de carga y descarga próxima para el transporte de equipamiento</span>
+                </li>
+              </ul>
+
+              <div class="contact-info">
+                <p class="contact-info__title">Datos para evaluar</p>
+                <ul class="logistics-list" role="list">
+                  <li class="logistics-list__item">
+                    <span class="logistics-list__item-icon" aria-hidden="true">👥</span>
+                    <span>Público objetivo del evento</span>
+                  </li>
+                  <li class="logistics-list__item">
+                    <span class="logistics-list__item-icon" aria-hidden="true">🔢</span>
+                    <span>Número de participantes estimado</span>
+                  </li>
+                  <li class="logistics-list__item">
+                    <span class="logistics-list__item-icon" aria-hidden="true">🕐</span>
+                    <span>Horarios del evento</span>
+                  </li>
+                  <li class="logistics-list__item">
+                    <span class="logistics-list__item-icon" aria-hidden="true">🍽</span>
+                    <span>Otros servicios de hostelería presentes</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div style="margin-top: 1.5rem; padding: 2rem; background-color: var(--color-cream-dark); border-radius: 16px;">
+              <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 1rem;">Contacto directo</h3>
+              <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 1rem; line-height: 1.6;">¿Prefieres hablar directamente? Escríbenos y te respondemos en menos de 24 horas.</p>
+              <a href="mailto:hola@doon.coffee" style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; text-transform: uppercase; color: var(--color-brown); display: block; margin-bottom: 0.5rem; transition: opacity 0.2s ease;">hola@doon.coffee</a>
+              <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <a href="#" class="btn btn--md btn--outline-dark" aria-label="Seguir DOÓN en Instagram" style="flex: 1; justify-content: center; font-size: 0.75rem;">Instagram</a>
+                <a href="#" class="btn btn--md btn--outline-dark" aria-label="Seguir DOÓN en TikTok" style="flex: 1; justify-content: center; font-size: 0.75rem;">TikTok</a>
+              </div>
+            </div>
+
+            <!-- Testimonial in sidebar -->
+            <div style="margin-top: 1.5rem; padding: 2rem; background-color: var(--color-sky); border-radius: 16px;">
+              <p style="font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; text-transform: uppercase; line-height: 1.2; margin-bottom: 1rem; color: var(--color-black);">"¡Sin duda volveremos a trabajar juntos!"</p>
+              <p style="font-family: var(--font-display); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-brown);">Granada 2025</p>
+            </div>
+
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background-color: var(--color-cream-dark);" aria-labelledby="faq-heading">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-header__label">FAQ</span>
+          <h2 class="section-header__title" id="faq-heading">Preguntas<br>frecuentes</h2>
+        </header>
+        <div style="display: grid; gap: 1rem; max-width: 800px;">
+          <details style="padding: 1.5rem; background-color: var(--color-cream); border-radius: 12px; border: 1.5px solid var(--color-cream-dark);">
+            <summary style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-transform: uppercase; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              ¿Para qué tamaño de eventos estáis disponibles?
+              <span aria-hidden="true" style="font-size: 1.5rem; transition: transform 0.3s;">+</span>
+            </summary>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7;">Nos adaptamos a cualquier escala. Desde eventos íntimos de 1 hora hasta fines de semana completos con más de 500 participantes activos. Tenemos configuraciones de stand estándar y completa para diferentes necesidades.</p>
+          </details>
+          <details style="padding: 1.5rem; background-color: var(--color-cream); border-radius: 12px; border: 1.5px solid var(--color-cream-dark);">
+            <summary style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-transform: uppercase; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              ¿Qué espacio necesitamos preparar?
+              <span aria-hidden="true" style="font-size: 1.5rem;">+</span>
+            </summary>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7;">Necesitamos un mínimo de 4,5 × 3 metros, acceso a electricidad y al menos 1 hora y 30 minutos de margen antes del inicio del evento para el montaje completo. Es conveniente tener acceso cercano para la carga/descarga del equipamiento.</p>
+          </details>
+          <details style="padding: 1.5rem; background-color: var(--color-cream); border-radius: 12px; border: 1.5px solid var(--color-cream-dark);">
+            <summary style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-transform: uppercase; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              ¿Cuánto tiempo de antelación necesitáis?
+              <span aria-hidden="true" style="font-size: 1.5rem;">+</span>
+            </summary>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7;">Cuanto más tiempo mejor para organizarnos correctamente. Idealmente contacta con al menos 2-4 semanas de antelación. Para eventos grandes (500+ asistentes) recomendamos al menos un mes de anticipación.</p>
+          </details>
+          <details style="padding: 1.5rem; background-color: var(--color-cream); border-radius: 12px; border: 1.5px solid var(--color-cream-dark);">
+            <summary style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-transform: uppercase; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              ¿Podemos personalizar el menú para nuestro evento?
+              <span aria-hidden="true" style="font-size: 1.5rem;">+</span>
+            </summary>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7;">Sí, podemos adaptar la selección de bebidas, marcas colaboradoras y acompañamientos a las necesidades y perfil de tu evento. Cuéntanos tu público objetivo y el tipo de experiencia que buscas y lo diseñamos juntos.</p>
+          </details>
+          <details style="padding: 1.5rem; background-color: var(--color-cream); border-radius: 12px; border: 1.5px solid var(--color-cream-dark);">
+            <summary style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-transform: uppercase; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+              ¿Trabajáis fuera de vuestra ciudad?
+              <span aria-hidden="true" style="font-size: 1.5rem;">+</span>
+            </summary>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7;">Sí, nos desplazamos. Contáctanos con los detalles de tu evento y localización y te haremos llegar nuestra disponibilidad y propuesta incluyendo la logística de desplazamiento.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <p class="footer__brand-name">DOÓN</p>
+          <p class="footer__brand-sub">Specialty Coffee</p>
+          <p class="footer__tagline">Stand de café de especialidad para eventos deportivos. Donde el esfuerzo encuentra su pausa perfecta.</p>
+        </div>
+        <nav aria-label="Navegación footer">
+          <p class="footer__nav-title">Páginas</p>
+          <a href="index.html" class="footer__nav-link">Inicio</a>
+          <a href="about.html" class="footer__nav-link">Nosotros</a>
+          <a href="menu.html" class="footer__nav-link">Menú</a>
+          <a href="gallery.html" class="footer__nav-link">Galería</a>
+          <a href="contact.html" class="footer__nav-link">Contacto</a>
+        </nav>
+        <div>
+          <p class="footer__nav-title">Contacto</p>
+          <a href="contact.html" class="footer__nav-link">Reservar Stand</a>
+          <a href="mailto:hola@doon.coffee" class="footer__nav-link">hola@doon.coffee</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 DOÓN Specialty Coffee. Todos los derechos reservados.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Instagram de DOÓN">Instagram</a>
+          <a href="#" class="footer__social-link" aria-label="TikTok de DOÓN">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // Mobile menu
+    const btn = document.getElementById('hamburger-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('nav__mobile-menu--open');
+      btn.classList.toggle('nav__hamburger--open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen);
+      menu.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Form submission
+    const form = document.getElementById('booking-form');
+    const successMsg = document.getElementById('form-success');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (form.checkValidity()) {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        form.reportValidity();
+      }
+    });
+
+    // FAQ details arrows
+    document.querySelectorAll('details').forEach(d => {
+      const arrow = d.querySelector('span[aria-hidden]');
+      if (arrow) {
+        d.addEventListener('toggle', () => {
+          arrow.style.transform = d.open ? 'rotate(45deg)' : 'rotate(0deg)';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
