@@ -1,275 +1,440 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Conoce la historia de DOÓN Specialty Coffee — pasión por el deporte y el café de especialidad con experiencia en eventos de 500+ participantes." />
-  <title>Nosotros — DOÓN Specialty Coffee</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El Stand — DOÓN Specialty Coffee</title>
+  <link rel="stylesheet" href="global.css"/>
+  <style>
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      background: var(--coffee);
+      padding: 10rem 0 5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-hero-grain {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .page-hero-eyebrow { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sky); margin-bottom: 1.5rem; }
+    .page-hero h1 { font-family: var(--font-display); font-size: clamp(4rem, 9vw, 8rem); line-height: 0.9; color: var(--cream); margin-bottom: 1.5rem; }
+    .page-hero h1 span { color: var(--sky); }
+    .page-hero p { font-size: 1.05rem; font-weight: 300; color: rgba(237,232,214,0.65); max-width: 500px; line-height: 1.7; }
+
+    /* ─── EQUIPMENT TABLE ─── */
+    .equipment { background: var(--cream); }
+    .equip-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
+    .equip-table-wrap { overflow-x: auto; }
+    .equip-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .equip-table thead tr { background: var(--brown); color: var(--cream); }
+    .equip-table th { padding: 1rem 1.4rem; text-align: left; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 400; }
+    .equip-table tbody tr { border-bottom: 1px solid rgba(90,46,26,0.1); transition: background 0.15s; }
+    .equip-table tbody tr:hover { background: rgba(90,46,26,0.05); }
+    .equip-table td { padding: 1rem 1.4rem; color: #5a4430; vertical-align: top; }
+    .equip-table td:first-child { font-weight: 700; color: var(--coffee); }
+    .equip-badge { display: inline-block; background: var(--brown); color: var(--cream); font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px; margin-top: 0.3rem; }
+    .equip-setup-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+    .setup-card { border: 2px solid rgba(90,46,26,0.15); border-radius: 4px; padding: 2rem; }
+    .setup-card.featured { border-color: var(--brown); background: rgba(90,46,26,0.04); }
+    .setup-card h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--brown); margin-bottom: 0.5rem; }
+    .setup-card .setup-meta { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--khaki); margin-bottom: 1rem; }
+    .setup-card p { font-size: 0.88rem; line-height: 1.6; color: #6b5040; }
+    .setup-card .setup-dims { margin-top: 1rem; padding: 0.8rem 1rem; background: rgba(90,46,26,0.06); border-radius: 2px; font-family: var(--font-mono); font-size: 0.72rem; color: var(--brown); }
+
+    /* ─── LAYOUT DIAGRAM ─── */
+    .layout-section { background: var(--white); }
+    .layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .layout-diagram {
+      background: var(--coffee); border-radius: 8px; padding: 2.5rem;
+      font-family: var(--font-mono); color: var(--cream);
+    }
+    .layout-diagram-title { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.5; margin-bottom: 1.5rem; text-align: center; }
+    .diagram-grid { display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(4, 52px); gap: 4px; margin-bottom: 1rem; }
+    .dcell { border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 8px; text-align: center; line-height: 1.3; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+    .dc-counter { background: var(--brown); grid-column: 1/4; grid-row: 1/3; font-size: 10px; border-radius: 8px; }
+    .dc-machine { background: rgba(184,204,224,0.25); grid-column: 4/6; grid-row: 1; color: var(--sky); }
+    .dc-grinder { background: rgba(184,204,224,0.15); grid-column: 4/6; grid-row: 2; color: var(--sky); }
+    .dc-barista { background: rgba(255,255,255,0.06); grid-column: 1/6; grid-row: 3; border: 1px dashed rgba(255,255,255,0.15); }
+    .dc-public { background: rgba(255,255,255,0.03); grid-column: 1/6; grid-row: 4; border: 1px dashed rgba(255,255,255,0.08); color: rgba(237,232,214,0.4); }
+    .diagram-dims { display: flex; justify-content: space-between; font-size: 9px; opacity: 0.4; letter-spacing: 0.08em; margin-top: 0.5rem; }
+
+    /* ─── LOGISTICS ─── */
+    .logistics { background: var(--khaki); color: var(--cream); }
+    .logistics .section-title { color: var(--cream); }
+    .logistics .section-label { color: rgba(237,232,214,0.5); }
+    .log-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3.5rem; }
+    .log-card { padding: 2rem; border: 1px solid rgba(237,232,214,0.2); border-radius: 4px; transition: background 0.2s; }
+    .log-card:hover { background: rgba(237,232,214,0.05); }
+    .log-card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .log-card h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.6rem; letter-spacing: 0.02em; }
+    .log-card p, .log-card li { font-size: 0.85rem; line-height: 1.65; color: rgba(237,232,214,0.72); }
+    .log-card ul { padding-left: 1rem; display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.5rem; }
+    .log-card .log-val { font-family: var(--font-display); font-size: 2rem; color: var(--cream); display: block; margin-bottom: 0.25rem; }
+    .log-warning { margin-top: 3rem; padding: 1.5rem 2rem; background: rgba(237,232,214,0.08); border-left: 3px solid var(--sky); font-size: 0.85rem; color: rgba(237,232,214,0.8); }
+
+    /* ─── HOW IT WORKS ─── */
+    .howto { background: var(--white); }
+    .howto-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 3.5rem; border: 1px solid rgba(90,46,26,0.1); border-radius: 4px; overflow: hidden; }
+    .howto-step { padding: 2.5rem 2rem; border-right: 1px solid rgba(90,46,26,0.1); transition: background 0.2s; }
+    .howto-step:last-child { border-right: none; }
+    .howto-step:hover { background: var(--cream); }
+    .step-num { font-family: var(--font-display); font-size: 3rem; color: rgba(90,46,26,0.12); line-height: 1; margin-bottom: 1rem; }
+    .howto-step h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--brown); margin-bottom: 0.5rem; }
+    .howto-step p { font-size: 0.85rem; line-height: 1.65; color: #6b5040; }
+    .howto-step .time-badge { display: inline-block; margin-top: 1rem; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); background: var(--brown); padding: 0.25rem 0.7rem; border-radius: 2px; }
+
+    /* ─── SUSTAINABILITY ─── */
+    .sustain { background: var(--cream); }
+    .sustain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+    .sustain-visual { background: linear-gradient(135deg, var(--khaki), var(--coffee)); border-radius: 8px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 8rem; position: relative; overflow: hidden; }
+    .sustain-items { display: flex; flex-direction: column; gap: 1.5rem; }
+    .sustain-item { display: flex; gap: 1.2rem; align-items: flex-start; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(90,46,26,0.08); }
+    .sustain-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .sustain-num { font-family: var(--font-display); font-size: 2.5rem; color: rgba(90,46,26,0.15); line-height: 1; min-width: 2.5rem; }
+    .sustain-item h4 { font-weight: 700; font-size: 0.92rem; margin-bottom: 0.3rem; color: var(--coffee); }
+    .sustain-item p { font-size: 0.85rem; line-height: 1.6; color: #6b5040; }
+
+    /* ─── SUPPLIERS ─── */
+    .suppliers { background: var(--white); }
+    .suppliers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1rem; margin-top: 3rem; }
+    .supplier-card { background: var(--cream); border-radius: 4px; padding: 1.8rem; border: 1px solid rgba(90,46,26,0.08); }
+    .supplier-card .cat { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--khaki); margin-bottom: 0.6rem; }
+    .supplier-card h4 { font-weight: 700; font-size: 0.92rem; color: var(--coffee); margin-bottom: 0.3rem; }
+    .supplier-card p { font-size: 0.78rem; color: #7a6050; line-height: 1.5; }
+    .supplier-card .supplier-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+    /* ─── FAQ ─── */
+    .faq-section { background: var(--cream); }
+    .faq-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; border: 1px solid rgba(90,46,26,0.12); border-radius: 4px; overflow: hidden; }
+    .faq-item { background: var(--white); border-bottom: 1px solid rgba(90,46,26,0.08); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 2rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--coffee); transition: background 0.15s; gap: 1rem; }
+    .faq-q:hover { background: rgba(90,46,26,0.03); }
+    .faq-q .arr { color: var(--brown); font-size: 1.1rem; flex-shrink: 0; transition: transform 0.2s; }
+    .faq-item.open .faq-q .arr { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 2rem 1.4rem; font-size: 0.88rem; line-height: 1.7; color: #6b5040; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── CTA ─── */
+    .cta-banner { background: var(--brown); padding: 5rem 0; }
+    .cta-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
+    .cta-banner h2 { font-family: var(--font-display); font-size: clamp(2.5rem,4vw,4rem); color: var(--cream); line-height: 1; }
+    .cta-banner h2 span { color: var(--sky); }
+
+    @media (max-width: 900px) {
+      .equip-intro, .layout-grid, .sustain-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .log-grid, .howto-steps, .equip-setup-cards { grid-template-columns: 1fr; }
+      .howto-step { border-right: none; border-bottom: 1px solid rgba(90,46,26,0.1); }
+      .cta-banner-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
+  <a href="index.html" onclick="closeMobile()">Inicio</a>
+  <a href="stand.html" onclick="closeMobile()">El Stand</a>
+  <a href="calendario.html" onclick="closeMobile()">Calendario</a>
+  <a href="reservas.html" onclick="closeMobile()">Reservas</a>
+</div>
 
-  <!-- NAVIGATION -->
-  <nav class="nav" aria-label="Navegación principal">
-    <div class="container nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="DOÓN Specialty Coffee — Inicio">
-        <span class="nav__logo-wordmark">DOÓN</span>
-        <span class="nav__logo-sub">Specialty Coffee</span>
-      </a>
-      <ul class="nav__links" role="list">
-        <li><a href="index.html" class="nav__link">Inicio</a></li>
-        <li><a href="about.html" class="nav__link nav__link--active">Nosotros</a></li>
-        <li><a href="menu.html" class="nav__link">Menú</a></li>
-        <li><a href="gallery.html" class="nav__link">Galería</a></li>
-      </ul>
-      <a href="contact.html" class="nav__cta">Reserva tu stand</a>
-      <button class="nav__hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" id="hamburger-btn">
-        <span class="nav__hamburger-line"></span>
-        <span class="nav__hamburger-line"></span>
-        <span class="nav__hamburger-line"></span>
-      </button>
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo"><span>Specialty Coffee</span>DOÓN</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="stand.html" class="active">El Stand</a></li>
+    <li><a href="calendario.html">Calendario</a></li>
+    <li><a href="reservas.html" class="nav-cta">Reservar</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="openMobile()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grain"></div>
+  <div class="container">
+    <p class="page-hero-eyebrow">Equipamiento & Logística</p>
+    <h1>El stand DOÓN,<br><span>de principio a fin.</span></h1>
+    <p>Todo lo que necesitas saber antes de reservar. Qué traemos, cuánto espacio ocupamos, cuánto tardamos y qué puedes esperar el día del evento.</p>
+  </div>
+</section>
+
+<!-- EQUIPMENT -->
+<section class="equipment" id="equipamiento">
+  <div class="container">
+    <div class="equip-intro fade-in">
+      <div>
+        <p class="section-label">Maquinaria</p>
+        <h2 class="section-title">Equipo<br>profesional.</h2>
+      </div>
+      <p class="section-body">Cada pieza del stand está seleccionada para garantizar consistencia, velocidad y calidad en cualquier condición. Sin concesiones.</p>
     </div>
-    <nav class="nav__mobile-menu" id="mobile-menu" aria-label="Menú móvil" aria-hidden="true">
-      <a href="index.html" class="nav__mobile-link">Inicio</a>
-      <a href="about.html" class="nav__mobile-link">Nosotros</a>
-      <a href="menu.html" class="nav__mobile-link">Menú</a>
-      <a href="gallery.html" class="nav__mobile-link">Galería</a>
-      <a href="contact.html" class="nav__mobile-cta">Reserva tu stand</a>
-    </nav>
-  </nav>
-
-  <main id="main-content" class="page-content">
-
-    <!-- HERO -->
-    <section class="about-hero" aria-labelledby="about-page-heading">
-      <div class="about-hero__bg" aria-hidden="true"></div>
-      <div class="container" style="position: relative; z-index: 1;">
-        <span class="about-hero__label animate-fade-up animate-delay-1">Nuestra historia</span>
-        <h1 class="about-hero__title animate-fade-up animate-delay-2">
-          Sobre<br>DOÓN
-        </h1>
-        <p class="about-hero__body animate-fade-up animate-delay-3" id="about-page-heading">
-          Nacimos de la pasión compartida por el deporte y el café de alta calidad. Creemos que un gran café es el aliado perfecto para rendir mejor, recargar fuerzas y disfrutar cada momento del evento.
-        </p>
+    <div class="equip-table-wrap fade-in">
+      <table class="equip-table">
+        <thead><tr>
+          <th>Elemento</th><th>Marca</th><th>Modelo</th><th>Función</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>Máquina de espresso<div><span class="equip-badge">Principal</span></div></td>
+            <td>Rocket Espresso</td><td>Mozzafiato R Fast</td>
+            <td>Extracción de café espresso. Control de temperatura E61, caldera doble circuito, acabado en acero inoxidable.</td>
+          </tr>
+          <tr>
+            <td>Molino de café<div><span class="equip-badge">Principal</span></div></td>
+            <td>Compak</td><td>i6 PRO</td>
+            <td>Molienda bajo demanda para café tradicional. Fresas planas 68 mm, molienda precisa y uniforme.</td>
+          </tr>
+          <tr>
+            <td>Molino de café (2º)<div><span class="equip-badge">Descafeinado</span></div></td>
+            <td>Compak</td><td>Mini i3 PRO Negro</td>
+            <td>Molienda exclusiva para descafeinado. Evita contaminación cruzada, pureza garantizada en cada dosis.</td>
+          </tr>
+          <tr>
+            <td>Nevera portátil<div><span class="equip-badge">Cadena frío</span></div></td>
+            <td>Yeti</td><td>Tundra® 105 Tan</td>
+            <td>Cadena de frío para leche y bebidas vegetales durante toda la jornada del evento.</td>
+          </tr>
+          <tr>
+            <td>Hervidor de agua<div><span class="equip-badge">Auxiliar</span></div></td>
+            <td>Brewista</td><td>Smart Pour 2</td>
+            <td>Agua caliente para métodos filtro y americanos. Control de temperatura preciso.</td>
+          </tr>
+          <tr>
+            <td>Filtración de agua<div><span class="equip-badge">Calidad</span></div></td>
+            <td>BWT</td><td>Bestmax Premium</td>
+            <td>Filtro de agua inline. Elimina cloro y cal para proteger la maquinaria y mejorar el perfil de sabor.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="equip-setup-cards fade-in">
+      <div class="setup-card featured">
+        <h3>Stand completo</h3>
+        <p class="setup-meta">Configuración estándar para eventos</p>
+        <p>Barra completa con maquinaria profesional, 1 barista, carta completa de bebidas calientes y frías. Montaje, servicio y desmontaje incluidos.</p>
+        <div class="setup-dims">📐 Footprint: 2m ancho × 1.5m fondo · Zona cliente recomendada: +1m</div>
       </div>
-    </section>
-
-    <!-- STORY -->
-    <section class="about-story section" aria-labelledby="story-heading">
-      <div class="container">
-        <div class="about-story__grid">
-          <div>
-            <header class="section-header">
-              <span class="section-header__label">Introducción</span>
-              <h2 class="section-header__title" id="story-heading">Pasión<br>compartida</h2>
-            </header>
-            <div class="about-story__body">
-              <p>Somos DOÓN, un stand de café de especialidad especializado en eventos deportivos. Nuestra misión es acompañar a atletas, organizadores y espectadores con una experiencia de calidad que combine energía, calidez y sabor.</p>
-              <p>Creemos en el poder del buen café como el aliado perfecto para rendir mejor, recargar fuerzas y disfrutar cada momento del evento. Para nosotros, el esfuerzo físico encuentra su equilibrio en una buena taza.</p>
-              <p>En DOÓN trabajamos con los mejores tostadores de café a nivel nacional, seleccionando granos de origen y procesos que garantizan una bebida con carácter, aroma y personalidad. Nuestra propuesta es más que café: es una pausa consciente que impulsa cuerpo y mente a seguir adelante.</p>
-            </div>
-          </div>
-          <div class="about-story__image-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80"
-              alt="Barista DOÓN preparando café de especialidad en evento deportivo con maquinaria profesional de espresso"
-              style="width:100%; height:100%; object-fit:cover; border-radius: 8px;"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="about-teaser section" aria-labelledby="stats-heading">
-      <div class="container">
-        <h2 class="sr-only" id="stats-heading">Nuestros números</h2>
-        <div style="display: grid; gap: 2rem; align-items: center;" class="about-teaser__inner">
-          <div>
-            <span class="about-teaser__label">Experiencia probada</span>
-            <p class="about-teaser__title">Grandes eventos,<br>gran café</p>
-            <p class="about-teaser__body">Desde actividades puntuales de una hora enfocadas en una disciplina específica, hasta fines de semana completos con más de 500 participantes activos y una gran afluencia de visitantes.</p>
-            <p class="about-teaser__body" style="margin-top: 1rem;">Nuestra versatilidad nos permite operar de forma ágil tanto en espacios reducidos como en eventos masivos, siempre manteniendo la calidad del servicio y la atención personalizada.</p>
-          </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-            <div style="background: rgba(0,0,0,0.15); border-radius: 12px; padding: 2rem; text-align: center;">
-              <div class="stat-block__number" style="font-size: 4rem;">500+</div>
-              <div class="stat-block__label">Participantes por evento</div>
-            </div>
-            <div style="background: rgba(0,0,0,0.15); border-radius: 12px; padding: 2rem; text-align: center;">
-              <div class="stat-block__number" style="font-size: 4rem;">100%</div>
-              <div class="stat-block__label">Café de especialidad</div>
-            </div>
-            <div style="background: rgba(0,0,0,0.15); border-radius: 12px; padding: 2rem; text-align: center;">
-              <div class="stat-block__number" style="font-size: 4rem;">Pro</div>
-              <div class="stat-block__label">Maquinaria de élite</div>
-            </div>
-            <div style="background: rgba(0,0,0,0.15); border-radius: 12px; padding: 2rem; text-align: center;">
-              <div class="stat-block__number" style="font-size: 4rem;">Top</div>
-              <div class="stat-block__label">Tostadores nacionales</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERTISE -->
-    <section class="expertise section" aria-labelledby="expertise-heading">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-header__label">Nuestra ventaja</span>
-          <h2 class="section-header__title" id="expertise-heading">Por qué<br>elegir DOÓN</h2>
-          <p class="section-header__body">Estas experiencias nos han permitido consolidar un sistema de trabajo eficiente, confiable y muy bien valorado por organizadores y asistentes.</p>
-        </header>
-        <div class="expertise__grid">
-          <article class="expertise-card">
-            <div class="expertise-card__num">01</div>
-            <h3 class="expertise-card__title">Maquinaria de Élite</h3>
-            <p class="expertise-card__text">El corazón de nuestro stand es la máquina de espresso profesional, acompañada de dos molinillos: uno para café tradicional y otro para descafeinado. Garantía de consistencia y calidad en cada taza, bajo cualquier demanda.</p>
-          </article>
-          <article class="expertise-card expertise-card--olive">
-            <div class="expertise-card__num">02</div>
-            <h3 class="expertise-card__title">Materias Primas Premium</h3>
-            <p class="expertise-card__text">Trabajamos exclusivamente con los mejores tostadores nacionales, seleccionando granos de origen con perfiles de tueste que expresan aroma, carácter y personalidad. Sin compromisos con la calidad.</p>
-          </article>
-          <article class="expertise-card expertise-card--sky">
-            <div class="expertise-card__num">03</div>
-            <h3 class="expertise-card__title">Versatilidad Total</h3>
-            <p class="expertise-card__text">Montaje estándar en 140×60 cm para eventos íntimos. Configuración completa con MoccaMaster para eventos masivos donde el café frío es protagonista. Nos adaptamos a tu escala.</p>
-          </article>
-          <article class="expertise-card">
-            <div class="expertise-card__num">04</div>
-            <h3 class="expertise-card__title">Baristas Profesionales</h3>
-            <p class="expertise-card__text">Nuestro equipo es apasionado, rápido y comprometido. Cada taza está pensada y ejecutada con atención al detalle para ofrecer una experiencia premium incluso en los momentos de mayor afluencia.</p>
-          </article>
-          <article class="expertise-card expertise-card--olive">
-            <div class="expertise-card__num">05</div>
-            <h3 class="expertise-card__title">Valor para tu Evento</h3>
-            <p class="expertise-card__text">Nuestra presencia no solo enriquece la vivencia del público, sino que proyecta una imagen cuidada y moderna. Reforzamos la identidad de eventos que buscan destacarse por su excelencia.</p>
-          </article>
-          <article class="expertise-card expertise-card--sky">
-            <div class="expertise-card__num">06</div>
-            <h3 class="expertise-card__title">Logística Impecable</h3>
-            <p class="expertise-card__text">Solo necesitamos 4,5×3m de espacio, acceso a electricidad y 1h30 de montaje previo. Autosuficientes, organizados y sin sorpresas. Tu evento, sin complicaciones añadidas.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- STAND DESIGN -->
-    <section class="section" style="background-color: var(--color-cream);" aria-labelledby="stand-heading">
-      <div class="container">
-        <div style="display: grid; gap: 3rem; align-items: center;" class="about-story__grid">
-          <div>
-            <header class="section-header">
-              <span class="section-header__label">Diseño del Stand</span>
-              <h2 class="section-header__title" id="stand-heading">Funcional.<br>Atractivo.<br>Flexible.</h2>
-            </header>
-            <div class="about-story__body">
-              <p>Nuestro stand está pensado para ser funcional, atractivo y adaptarse con flexibilidad a diferentes espacios, manteniendo siempre un enfoque en la calidad del servicio y la eficiencia operativa.</p>
-            </div>
-            <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
-              <div style="padding: 1.5rem; background-color: var(--color-cream-dark); border-radius: 12px; border-left: 4px solid var(--color-brown);">
-                <p style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-transform: uppercase; margin-bottom: 0.4rem;">Montaje Estándar</p>
-                <p style="font-size: 0.88rem; color: var(--color-text-muted);">Espresso + 1 molinillo · Mesa de 140×60 cm · Ideal para eventos de menor escala o espacios reducidos.</p>
-              </div>
-              <div style="padding: 1.5rem; background-color: var(--color-olive); border-radius: 12px; color: var(--color-cream);">
-                <p style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-transform: uppercase; margin-bottom: 0.4rem;">Montaje Completo</p>
-                <p style="font-size: 0.88rem; opacity: 0.8;">Espresso + 2 molinillos + MoccaMaster · Dos mesas de 140×60 cm · Para eventos masivos y alta demanda de café frío.</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1511081692775-05d0f180a065?w=700&q=80"
-              alt="Vista del stand de café DOÓN con equipamiento profesional en evento deportivo"
-              style="width:100%; border-radius: 16px; object-fit: cover; aspect-ratio: 4/5;"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIAL -->
-    <section class="testimonial-section section" aria-labelledby="testimonial-about-heading">
-      <div class="container">
-        <div class="testimonial">
-          <h2 class="sr-only" id="testimonial-about-heading">Testimonio</h2>
-          <p class="testimonial__quote">"Contar con este stand de café fue un gran acierto. Se adaptaron al ritmo del público deportivo y trabajaron con mucha responsabilidad. ¡Sin duda volveremos a trabajar juntos!"</p>
-          <cite class="testimonial__cite">Organizadora de Evento · Granada 2025</cite>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-banner section" aria-labelledby="cta-about-heading">
-      <div class="cta-banner__bg" aria-hidden="true"></div>
-      <div class="container cta-banner__inner">
-        <h2 class="cta-banner__title" id="cta-about-heading">
-          ¿Listo para<br>
-          <span>elevar</span><br>
-          tu evento?
-        </h2>
-        <p class="cta-banner__sub">Contáctanos y hablemos sobre cómo DOÓN puede ser el complemento perfecto para tu próximo evento deportivo.</p>
-        <a href="contact.html" class="btn btn--lg btn--outline">Contactar ahora →</a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__top">
-        <div>
-          <p class="footer__brand-name">DOÓN</p>
-          <p class="footer__brand-sub">Specialty Coffee</p>
-          <p class="footer__tagline">Stand de café de especialidad para eventos deportivos. Donde el esfuerzo encuentra su pausa perfecta.</p>
-        </div>
-        <nav aria-label="Navegación footer">
-          <p class="footer__nav-title">Páginas</p>
-          <a href="index.html" class="footer__nav-link">Inicio</a>
-          <a href="about.html" class="footer__nav-link">Nosotros</a>
-          <a href="menu.html" class="footer__nav-link">Menú</a>
-          <a href="gallery.html" class="footer__nav-link">Galería</a>
-          <a href="contact.html" class="footer__nav-link">Contacto</a>
-        </nav>
-        <div>
-          <p class="footer__nav-title">Contacto</p>
-          <a href="contact.html" class="footer__nav-link">Reservar Stand</a>
-          <a href="mailto:hola@doon.coffee" class="footer__nav-link">hola@doon.coffee</a>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p class="footer__copy">© 2026 DOÓN Specialty Coffee. Todos los derechos reservados.</p>
-        <div class="footer__social">
-          <a href="#" class="footer__social-link" aria-label="Instagram de DOÓN">Instagram</a>
-          <a href="#" class="footer__social-link" aria-label="TikTok de DOÓN">TikTok</a>
-        </div>
+      <div class="setup-card">
+        <h3>Stand compacto</h3>
+        <p class="setup-meta">Para espacios reducidos o eventos íntimos</p>
+        <p>Configuración reducida adaptable a menos de 1.5m de ancho. Perfecta para eventos indoor, lobbies o espacios con acceso limitado.</p>
+        <div class="setup-dims">📐 Footprint: 1.2m ancho × 1.2m fondo · Mínimo espacio requerido</div>
       </div>
     </div>
-  </footer>
+    <div>
+      <header class="section-header">
+        <span class="section-header__label">Diseño del Stand</span>
+          <h2 class="section-header__title" id="stand-heading">Funcional.<br>Atractivo.<br>Flexible.</h2>
+      </header>
+      <div class="about-story__body">
+        <p>Nuestro stand está pensado para ser funcional, atractivo y adaptarse con flexibilidad a diferentes espacios, manteniendo siempre un enfoque en la calidad del servicio y la eficiencia operativa.</p>
+    </div>
+    <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+      <div style="padding: 1.5rem; background-color: var(--color-cream-dark); border-radius: 12px; border-left: 4px solid var(--color-brown);">
+        <p style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-transform: uppercase; margin-bottom: 0.4rem;">Montaje Estándar</p>
+        <p style="font-size: 0.88rem; color: var(--color-text-muted);">Espresso + 1 molinillo · Mesa de 140×60 cm · Ideal para eventos de menor escala o espacios reducidos.</p>
+      </div>
+      <div style="padding: 1.5rem; background-color: var(--color-olive); border-radius: 12px; color: var(--color-cream);">
+        <p style="font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-transform: uppercase; margin-bottom: 0.4rem;">Montaje Completo</p>
+        <p style="font-size: 0.88rem; opacity: 0.8;">Espresso + 2 molinillos + MoccaMaster · Dos mesas de 140×60 cm · Para eventos masivos y alta demanda de café frío.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    const nav = document.querySelector('.nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('nav--scrolled', window.scrollY > 40);
-    }, { passive: true });
+<!-- LAYOUT DIAGRAM -->
+<section class="layout-section">
+  <div class="container">
+    <div class="layout-grid">
+      <div class="fade-in">
+        <p class="section-label">Disposición</p>
+        <h2 class="section-title">Vista del<br>stand.</h2>
+        <p class="section-body">Distribución optimizada para flujo de clientes eficiente. Zona de trabajo separada del área de servicio para máxima higiene y comodidad.</p>
+        <div style="margin-top:2rem; display:flex; flex-direction:column; gap:0.8rem;">
+          <div style="display:flex;gap:1rem;align-items:center;font-size:0.85rem;color:#6b5040;">
+            <span style="width:14px;height:14px;border-radius:3px;background:var(--brown);flex-shrink:0;display:inline-block;"></span>
+            Barra principal de servicio
+          </div>
+          <div style="display:flex;gap:1rem;align-items:center;font-size:0.85rem;color:#6b5040;">
+            <span style="width:14px;height:14px;border-radius:3px;background:rgba(184,204,224,0.4);flex-shrink:0;display:inline-block;"></span>
+            Maquinaria (espresso + molino)
+          </div>
+          <div style="display:flex;gap:1rem;align-items:center;font-size:0.85rem;color:#6b5040;">
+            <span style="width:14px;height:14px;border-radius:3px;background:rgba(90,46,26,0.08);border:1px dashed rgba(90,46,26,0.3);flex-shrink:0;display:inline-block;"></span>
+            Zona barista / zona cliente
+          </div>
+        </div>
+      </div>
+      <div class="layout-diagram fade-in">
+        <div class="layout-diagram-title">Vista superior · 2m × 1.5m</div>
+        <div class="diagram-grid">
+          <div class="dcell dc-counter">Barra principal</div>
+          <div class="dcell dc-machine">Máquina espresso</div>
+          <div class="dcell dc-grinder">Molino</div>
+          <div class="dcell dc-barista">← Zona barista (1–2 personas) →</div>
+          <div class="dcell dc-public">← Área de servicio y clientes →</div>
+        </div>
+        <div class="diagram-dims"><span>← 2 metros →</span><span>↕ 1.5m</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const btn = document.getElementById('hamburger-btn');
-    const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('nav__mobile-menu--open');
-      btn.classList.toggle('nav__hamburger--open', isOpen);
-      btn.setAttribute('aria-expanded', isOpen);
-      menu.setAttribute('aria-hidden', !isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-  </script>
+<!-- LOGISTICS -->
+<section class="logistics" id="logistica">
+  <div class="container">
+    <p class="section-label fade-in">Requisitos técnicos</p>
+    <h2 class="section-title fade-in">Lo que<br>necesitamos.</h2>
+    <div class="log-grid">
+      <div class="log-card fade-in">
+        <div class="log-card-icon">🔌</div>
+        <h3>Electricidad</h3>
+        <span class="log-val">1 enchufe</span>
+        <p>Enchufe estándar 230V / 16A. Consumo máximo 3 kW. Incluimos extensión hasta 20m de longitud.</p>
+      </div>
+      <div class="log-card fade-in">
+        <div class="log-card-icon">📐</div>
+        <h3>Espacio mínimo</h3>
+        <span class="log-val">2 × 1.5 m</span>
+        <p>2m de ancho × 1.5m de fondo para el stand operativo. Recomendamos 1m adicional delante para el flujo de clientes.</p>
+      </div>
+      <div class="log-card fade-in">
+        <div class="log-card-icon">💧</div>
+        <h3>Agua</h3>
+        <span class="log-val">Autónomo</span>
+        <p>Sistema de depósitos propios de agua limpia y residual. No necesitamos punto de agua en el emplazamiento.</p>
+      </div>
+      <div class="log-card fade-in">
+        <div class="log-card-icon">🚐</div>
+        <h3>Acceso vehículo</h3>
+        <span class="log-val">50 m max</span>
+        <p>Necesitamos acceso para vehículo de carga a menos de 50m del emplazamiento para la descarga del material.</p>
+      </div>
+      <div class="log-card fade-in">
+        <div class="log-card-icon">⏱</div>
+        <h3>Montaje</h3>
+        <span class="log-val">45 min</span>
+        <p>Llegamos 60–75 minutos antes del evento. Stand operativo en 45 min. Desmontaje completo: 30 min.</p>
+      </div>
+      <div class="log-card fade-in">
+        <div class="log-card-icon">🌡</div>
+        <h3>Interior / Exterior</h3>
+        <span class="log-val">Ambos</span>
+        <p>Operamos en interior y exterior. Para lluvia intensa recomendamos carpa o cubierta mínima de 3×3m.</p>
+      </div>
+    </div>
+    <div class="log-warning fade-in">
+      <strong>Nota importante:</strong> Para eventos de más de 500 personas o jornadas de más de 6 horas, recomendamos valorar la opción de 2 baristas para mantener la calidad del servicio. Consúltanos al reservar.
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="howto">
+  <div class="container">
+    <p class="section-label fade-in">El proceso</p>
+    <h2 class="section-title fade-in">Cómo funciona.</h2>
+    <div class="howto-steps fade-in">
+      <div class="howto-step">
+        <div class="step-num">01</div>
+        <h3>Consulta</h3>
+        <p>Rellena el formulario con los datos de tu evento. Te confirmamos disponibilidad y enviamos presupuesto cerrado.</p>
+        <span class="time-badge">— &lt; 24h respuesta</span>
+      </div>
+      <div class="howto-step">
+        <div class="step-num">02</div>
+        <h3>Detalle</h3>
+        <p>Definimos juntos carta, horario de servicio, emplazamiento exacto y requisitos técnicos del espacio.</p>
+        <span class="time-badge">— 2–3 días</span>
+      </div>
+      <div class="howto-step">
+        <div class="step-num">03</div>
+        <h3>Montaje</h3>
+        <p>Llegamos 60–75 min antes. Montamos y calibramos la máquina. Stand listo antes de que empiece el evento.</p>
+        <span class="time-badge">— 45 min setup</span>
+      </div>
+      <div class="howto-step">
+        <div class="step-num">04</div>
+        <h3>Servicio</h3>
+        <p>Servimos con orgullo durante toda la jornada. Al acabar, desmontamos y dejamos el espacio impecable.</p>
+        <span class="time-badge">— 30 min desmontaje</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<section class="sustain" id="sostenibilidad">
+  <div class="container">
+    <div class="sustain-grid">
+      <div class="sustain-visual fade-in">♻️</div>
+      <div class="fade-in">
+        <p class="section-label">Sostenibilidad</p>
+        <h2 class="section-title">Café<br>responsable.</h2>
+        <div class="sustain-items">
+          <div class="sustain-item"><div class="sustain-num">01</div><div><h4>Envases compostables</h4><p>Vasos, tapas y servilletas 100% compostables. Certificados como material compostable industrial conforme a EN 13432.</p></div></div>
+          <div class="sustain-item"><div class="sustain-num">02</div><div><h4>Gestión de residuos</h4><p>Sistema cerrado de agua residual. Los posos de café se recogen para compostaje y fertilizante. Zero vertidos al evento.</p></div></div>
+          <div class="sustain-item"><div class="sustain-num">03</div><div><h4>Limpieza sin tóxicos</h4><p>Productos de limpieza biodegradables de grado hostelería. Desinfectante multiusos para superficies en contacto con alimentos.</p></div></div>
+          <div class="sustain-item"><div class="sustain-num">04</div><div><h4>Trazabilidad completa</h4><p>Todos los productos tienen etiquetado de origen, facturas y registros de lote. Normativa de seguridad alimentaria vigente.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <p class="section-label fade-in">Preguntas frecuentes</p>
+    <h2 class="section-title fade-in">Todo lo que<br>necesitas saber.</h2>
+    <div class="faq-list fade-in">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Necesito tener agua corriente en el emplazamiento? <span class="arr">+</span></div><div class="faq-a">No. El stand DOÓN funciona de forma completamente autónoma con depósitos de agua limpia y residual integrados. Solo necesitamos un enchufe estándar de 230V.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Cuántos cafés podéis servir en una hora? <span class="arr">+</span></div><div class="faq-a">Con un barista y la máquina de 1 grupo: 50–60 bebidas/hora de forma confortable. En momentos de máxima demanda puede alcanzar 80. Para eventos masivos recomendamos valorar 2 baristas.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Podéis personalizar el stand con mi marca? <span class="arr">+</span></div><div class="faq-a">Sí. Disponemos de opciones de branding: vinilo frontal personalizado con el logo de tu evento, vasos con branding y uniforme coordinado. Consúltanos al reservar para incluirlo en el presupuesto.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Trabajáis en exterior con lluvia o frío? <span class="arr">+</span></div><div class="faq-a">Sí, operamos en exterior. Para lluvia intensa recomendamos una carpa o zona cubierta mínima de 3×3m para proteger tanto el equipo como a los clientes. En invierno operamos con normalidad.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Con cuánta antelación hay que reservar? <span class="arr">+</span></div><div class="faq-a">Recomendamos reservar con al menos 3–4 semanas de antelación. Para eventos grandes o en fechas muy demandadas, antes mejor. Consulta el calendario de disponibilidad antes de contactar.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Los consumibles están incluidos en el precio? <span class="arr">+</span></div><div class="faq-a">Sí. Vasos, tapas, agitadores, leche, café y demás consumibles están incluidos en el presupuesto cerrado. Sin costes adicionales el día del evento.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿En qué zonas operáis? <span class="arr">+</span></div><div class="faq-a">Base en Cantabria. Operamos habitualmente en Cantabria, Asturias, País Vasco, Navarra, Aragón y Madrid. Para otros destinos, consúltanos — siempre estudiamos cada caso.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si mi evento se cancela? <span class="arr">+</span></div><div class="faq-a">Lo gestionamos de forma flexible. Si la cancelación se notifica con más de 15 días de antelación, sin cargo. Para cancelaciones más cortas aplicamos una compensación proporcional por los gastos ya incurridos.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-inner">
+      <h2>¿Listo para llevar DOÓN<br>a tu evento? <span>Reserva ahora.</span></h2>
+      <div style="display:flex;gap:1rem;flex-shrink:0;flex-wrap:wrap;">
+        <a href="calendario.html" class="btn-primary">Ver disponibilidad</a>
+        <a href="reservas.html" class="btn-ghost">Solicitar reserva →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand"><div class="footer-logo">DOÓN</div><p>Stand de café de especialidad para eventos deportivos. Baristas profesionales, maquinaria premium y granos de origen único.</p></div>
+      <div class="footer-col"><h4>Navegación</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="stand.html">El Stand</a></li><li><a href="calendario.html">Calendario</a></li><li><a href="reservas.html">Reservas</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="#">Política de privacidad</a></li><li><a href="#">Aviso legal</a></li><li><a href="#">Política de cookies</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 DOÓN Specialty Coffee</p><p>Stand itinerante · España</p></div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  function openMobile() { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+  window.addEventListener('scroll', () => { document.getElementById('mainNav').style.boxShadow = window.scrollY > 60 ? '0 4px 30px rgba(63,30,13,0.12)' : 'none'; });
+  function toggleFaq(el) { const item = el.parentElement; item.classList.toggle('open'); }
+</script>
 </body>
 </html>
