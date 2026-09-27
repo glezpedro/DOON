@@ -9,7 +9,7 @@ window.DOON.config = {
   lema: 'Specialty coffee',
 
   // Correo al que llegan las solicitudes de reserva e información.
-  email: 'hola@doon.coffee',
+  email: 'info@doon.es',
 
   // Opcional: URL de un servicio de formularios (Formspree, Getform, Web3Forms…).
   // Si se deja vacío, al enviar el formulario se abre el correo del cliente con la solicitud ya redactada.
