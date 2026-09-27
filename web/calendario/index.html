@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendario y reservas · DOÓN Specialty Coffee</title>
+  <meta name="description" content="Consulta las fechas libres y ocupadas del stand DOÓN y solicita tu reserva o más información.">
+  <meta name="theme-color" content="#f7f5ef">
+  <link rel="icon" type="image/png" href="../../img/favicon.png">
+  <link rel="apple-touch-icon" href="../../img/icono-180.png">
+  <link rel="stylesheet" href="../../css/global.css">
+  <script src="../../js/config.js" defer></script>
+  <script src="../../js/layout.js" defer></script>
+  <script src="../../js/disponibilidad.js" defer></script>
+  <script src="../../js/calendario.js" defer></script>
+</head>
+<body>
+  <doon-header pagina="calendario"></doon-header>
+
+  <main id="contenido">
+    <section class="cabecera-pagina" aria-labelledby="titulo-pagina">
+      <div class="contenedor cabecera-pagina__rejilla">
+        <div>
+          <p class="antetitulo">Disponibilidad</p>
+          <h1 id="titulo-pagina" class="titular titular--xl"><span class="resalte">Calendario</span></h1>
+          <p class="entradilla">Consulta qué fechas tenemos libres. Pulsa un día disponible para reservarlo o pedirnos información; si tu evento dura varios días, pulsa después el último.</p>
+        </div>
+        <figure class="cabecera-pagina__llama">
+          <img src="../../img/llama.png" alt="" width="684" height="830">
+        </figure>
+      </div>
+    </section>
+
+    <section class="seccion" aria-label="Calendario de disponibilidad">
+      <div class="contenedor agenda">
+        <div class="calendario" data-calendario>
+          <div class="calendario__barra">
+            <button class="calendario__nav" type="button" data-mes="-1" aria-label="Mes anterior"><span aria-hidden="true">←</span></button>
+            <h2 class="calendario__mes" data-titulo-mes aria-live="polite">Calendario</h2>
+            <button class="calendario__nav" type="button" data-mes="1" aria-label="Mes siguiente"><span aria-hidden="true">→</span></button>
+          </div>
+          <ol class="calendario__semana" aria-hidden="true">
+            <li>Lun</li>
+            <li>Mar</li>
+            <li>Mié</li>
+            <li>Jue</li>
+            <li>Vie</li>
+            <li>Sáb</li>
+            <li>Dom</li>
+          </ol>
+          <ol class="calendario__dias" data-dias aria-label="Días del mes. Usa las flechas del teclado para moverte."></ol>
+          <ul class="leyenda" aria-label="Leyenda">
+            <li class="leyenda__item"><span class="leyenda__muestra" aria-hidden="true"></span>Libre</li>
+            <li class="leyenda__item"><span class="leyenda__muestra leyenda__muestra--ocupado" aria-hidden="true"></span>Ocupado</li>
+            <li class="leyenda__item"><span class="leyenda__muestra leyenda__muestra--seleccion" aria-hidden="true"></span>Tu selección</li>
+            <li class="leyenda__item"><span class="leyenda__muestra leyenda__muestra--hoy" aria-hidden="true"></span>Hoy</li>
+          </ul>
+          <noscript>
+            <p class="formulario__aviso">Activa JavaScript para ver el calendario. También puedes escribirnos directamente por correo.</p>
+          </noscript>
+        </div>
+
+        <aside class="panel" aria-label="Tu selección">
+          <div class="seleccion" data-panel-seleccion aria-live="polite">
+            <h2 class="seleccion__titulo">Tu fecha</h2>
+            <p class="seleccion__fecha" data-seleccion-fecha>Elige un día</p>
+            <p class="seleccion__texto" data-seleccion-texto>Pulsa un día libre del calendario. Si tu evento dura varios días, pulsa después el último día.</p>
+            <div class="acciones">
+              <button class="boton boton--primario" type="button" data-abrir-solicitud="reserva">Solicitar reserva</button>
+              <button class="boton boton--secundario" type="button" data-abrir-solicitud="informacion">Pedir información</button>
+            </div>
+          </div>
+
+          <div class="findes">
+            <h2 class="findes__titulo">Próximos fines de semana libres</h2>
+            <p class="texto-suave">Sábado y domingo disponibles. Pulsa uno para seleccionarlo.</p>
+            <ul class="findes__lista" data-findes></ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="solicitud" class="seccion seccion--crema" aria-labelledby="titulo-solicitud">
+      <div class="contenedor solicitud">
+        <header class="solicitud__intro encabezado encabezado--solo">
+          <p class="antetitulo">Reserva o información</p>
+          <h2 id="titulo-solicitud" class="titular">Cuéntanos tu evento</h2>
+          <p class="entradilla">Con estos datos preparamos una propuesta a medida: modalidad, montaje, carta y presupuesto.</p>
+          <p class="texto-suave">La fecha no queda reservada hasta que te la confirmemos.</p>
+        </header>
+
+        <div>
+          <form class="formulario" data-formulario>
+            <fieldset class="formulario__grupo">
+              <legend class="formulario__leyenda">¿Qué necesitas?</legend>
+              <div class="opciones-tipo">
+                <label class="opcion">
+                  <input class="opcion__control" type="radio" name="tipo" value="reserva" checked>
+                  <span class="opcion__titulo">Reservar una fecha</span>
+                  <span class="opcion__texto">Tengo el evento y quiero el stand.</span>
+                </label>
+                <label class="opcion">
+                  <input class="opcion__control" type="radio" name="tipo" value="informacion">
+                  <span class="opcion__titulo">Solicitar información</span>
+                  <span class="opcion__texto">Tengo dudas o aún no hay fecha cerrada.</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="formulario__grupo">
+              <legend class="formulario__leyenda">El evento</legend>
+              <div class="formulario__fila">
+                <div class="campo">
+                  <label class="campo__etiqueta" for="fecha-inicio">Fecha de inicio</label>
+                  <input class="campo__control" id="fecha-inicio" name="fecha_inicio" type="date" required>
+                </div>
+                <div class="campo">
+                  <label class="campo__etiqueta" for="fecha-fin">Fecha de fin</label>
+                  <input class="campo__control" id="fecha-fin" name="fecha_fin" type="date" aria-describedby="fecha-fin-ayuda">
+                  <p class="campo__ayuda" id="fecha-fin-ayuda">Solo si dura más de un día.</p>
+                </div>
+              </div>
+              <p class="formulario__aviso" data-aviso-fechas aria-live="polite"></p>
+
+              <div class="formulario__fila">
+                <div class="campo">
+                  <label class="campo__etiqueta" for="evento">Nombre del evento</label>
+                  <input class="campo__control" id="evento" name="evento" type="text" autocomplete="off">
+                </div>
+                <div class="campo">
+                  <label class="campo__etiqueta" for="tipo-evento">Tipo de evento</label>
+                  <select class="campo__control" id="tipo-evento" name="tipo_evento" required>
+                    <option value="">Selecciona una opción</option>
+                    <option>Crossfit, Hyrox o fitness funcional</option>
+                    <option>Carrera popular o trail</option>
+                    <option>Triatlón</option>
+                    <option>Ciclismo o MTB</option>
+                    <option>Carrera de obstáculos</option>
+                    <option>Torneo (pádel, fútbol…)</option>
+                    <option>Rally o motor</option>
+                    <option>Hackathon, congreso o jornada</option>
+                    <option>Evento de empresa</option>
+                    <option>Feria, mercado o festival</option>
+                    <option>Fiestas locales</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="formulario__fila">
+                <div class="campo">
+                  <label class="campo__etiqueta" for="localidad">Localidad</label>
+                  <input class="campo__control" id="localidad" name="localidad" type="text" autocomplete="address-level2" required>
+                </div>
+                <div class="campo">
+                  <label class="campo__etiqueta" for="horario">Horario de servicio</label>
+                  <input class="campo__control" id="horario" name="horario" type="text" placeholder="p. ej. 9:00 – 14:00">
+                </div>
+              </div>
+
+              <div class="formulario__fila">
+                <div class="campo">
+                  <label class="campo__etiqueta" for="asistentes">Participantes y público estimado</label>
+                  <select class="campo__control" id="asistentes" name="asistentes">
+                    <option value="">Selecciona una opción</option>
+                    <option>Menos de 100</option>
+                    <option>100 – 300</option>
+                    <option>300 – 500</option>
+                    <option>Más de 500</option>
+                  </select>
+                </div>
+                <div class="campo">
+                  <label class="campo__etiqueta" for="publico">Público objetivo</label>
+                  <input class="campo__control" id="publico" name="publico" type="text" placeholder="Atletas, familias, empresa…">
+                </div>
+              </div>
+
+              <div class="formulario__fila">
+                <div class="campo">
+                  <label class="campo__etiqueta" for="modalidad">Modalidad</label>
+                  <select class="campo__control" id="modalidad" name="modalidad">
+                    <option value="">Aún no lo sé</option>
+                    <option>Venta al público</option>
+                    <option>Servicio contratado por la organización</option>
+                  </select>
+                </div>
+                <div class="campo">
+                  <label class="campo__etiqueta" for="montaje">Montaje</label>
+                  <select class="campo__control" id="montaje" name="montaje">
+                    <option value="">Recomendadme uno</option>
+                    <option>Estándar (1 mesa)</option>
+                    <option>Completo (2 mesas)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label class="campo__etiqueta" for="hosteleria">Otros servicios de hostelería en el evento</label>
+                <select class="campo__control" id="hosteleria" name="hosteleria">
+                  <option value="">No lo sé todavía</option>
+                  <option>No, seríamos el único</option>
+                  <option>Sí, hay otros puestos de comida o bebida</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <fieldset class="formulario__grupo">
+              <legend class="formulario__leyenda">Tus datos</legend>
+              <div class="formulario__fila">
+                <div class="campo">
+                  <label class="campo__etiqueta" for="nombre">Persona de contacto</label>
+                  <input class="campo__control" id="nombre" name="nombre" type="text" autocomplete="name" required>
+                </div>
+                <div class="campo">
+                  <label class="campo__etiqueta" for="organizacion">Organización</label>
+                  <input class="campo__control" id="organizacion" name="organizacion" type="text" autocomplete="organization">
+                </div>
+              </div>
+              <div class="formulario__fila">
+                <div class="campo">
+                  <label class="campo__etiqueta" for="email">Correo electrónico</label>
+                  <input class="campo__control" id="email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="campo">
+                  <label class="campo__etiqueta" for="telefono">Teléfono</label>
+                  <input class="campo__control" id="telefono" name="telefono" type="tel" autocomplete="tel">
+                </div>
+              </div>
+              <div class="campo">
+                <label class="campo__etiqueta" for="mensaje">Mensaje</label>
+                <textarea class="campo__control" id="mensaje" name="mensaje" placeholder="Ubicación del stand, dudas, necesidades especiales…"></textarea>
+              </div>
+            </fieldset>
+
+            <label class="casilla">
+              <input class="casilla__control" type="checkbox" name="privacidad" required>
+              <span>Acepto que DOÓN use estos datos únicamente para responder a esta solicitud.</span>
+            </label>
+
+            <div class="formulario__envio">
+              <button class="boton boton--primario" type="submit">Enviar solicitud <span class="boton__flecha" aria-hidden="true">→</span></button>
+              <p class="formulario__nota" data-nota-envio>Te responderemos por correo para cerrar los detalles.</p>
+            </div>
+          </form>
+
+          <div class="confirmacion" data-confirmacion tabindex="-1" hidden>
+            <h3 class="confirmacion__titulo">¡Solicitud preparada!</h3>
+            <p data-confirmacion-texto></p>
+            <div class="acciones">
+              <button class="boton boton--primario" type="button" data-nueva-solicitud>Enviar otra solicitud</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <doon-footer></doon-footer>
+</body>
+</html>
