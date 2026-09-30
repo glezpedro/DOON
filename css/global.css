@@ -34,12 +34,14 @@
   --marron: #51392d;
   --marron-oscuro: #3b2920;
   --oliva: #665f4b;
+  --oliva-texto: #57513f; /* oliva para texto: contraste ≥ 4,5:1 también sobre azul y crema */
   --verde-llama: #2c4031;
 
   /* Texto y líneas */
   --tinta: #1e1b17;
   --texto: #3a342e;
-  --texto-suave: #6b6358;
+  --texto-suave: #5c554b;
+  --texto-apagado: #767068; /* días pasados: se ven desactivados pero legibles (≥ 4,5:1) */
   --linea: #1e1b17;
   --linea-suave: rgb(30 27 23 / 0.16);
 
@@ -293,7 +295,7 @@ p {
 
 .antetitulo {
   margin-bottom: 14px;
-  color: var(--oliva);
+  color: var(--oliva-texto);
   font-family: var(--fuente-marca);
   font-size: 1.25rem;
   letter-spacing: 0.06em;
@@ -575,7 +577,7 @@ p {
 }
 
 .marca__lema {
-  color: var(--oliva);
+  color: var(--oliva-texto);
   font-family: var(--fuente-marca);
   font-size: 0.9rem;
   letter-spacing: 0.08em;
@@ -819,7 +821,7 @@ p {
 }
 
 .portada__marca-lema {
-  color: var(--oliva);
+  color: var(--oliva-texto);
   font-family: var(--fuente-marca);
   font-size: clamp(1.25rem, 2.2vw, 1.9rem);
   letter-spacing: 0.04em;
@@ -915,7 +917,7 @@ p {
 
 .tarjeta__numero,
 .tarjeta__valor {
-  color: var(--oliva);
+  color: var(--oliva-texto);
   font-family: var(--fuente-marca);
   font-size: 2.4rem;
   line-height: 1;
@@ -1030,7 +1032,7 @@ p {
 
 .cita__autor {
   margin-top: 24px;
-  color: var(--oliva);
+  color: var(--oliva-texto);
   font-family: var(--fuente-marca);
   font-size: 1.15rem;
   letter-spacing: 0.06em;
@@ -1110,7 +1112,7 @@ p {
 }
 
 .carta__nota {
-  color: var(--oliva);
+  color: var(--oliva-texto);
   font-family: var(--fuente-marca);
   font-size: 1.1rem;
   letter-spacing: 0.06em;
@@ -1312,7 +1314,7 @@ p {
 
 .tabla thead th {
   border-bottom: 1px solid var(--linea);
-  color: var(--oliva);
+  color: var(--oliva-texto);
   font-family: var(--fuente-marca);
   font-size: 1.1rem;
   font-weight: 400;
@@ -1394,7 +1396,7 @@ p {
   .tabla td::before {
     content: attr(data-etiqueta);
     display: block;
-    color: var(--oliva);
+    color: var(--oliva-texto);
     font-family: var(--fuente-marca);
     font-size: 1rem;
     letter-spacing: 0.06em;
@@ -1616,7 +1618,7 @@ p {
 
 .calendario__semana {
   margin-bottom: 8px;
-  color: var(--oliva);
+  color: var(--oliva-texto);
   font-family: var(--fuente-marca);
   font-size: 1.05rem;
   letter-spacing: 0.06em;
@@ -1660,7 +1662,7 @@ p {
 .calendario__dia[data-estado="pasado"] {
   border-color: transparent;
   background: transparent;
-  color: rgb(30 27 23 / 0.3);
+  color: var(--texto-apagado);
   font-weight: 400;
   cursor: default;
 }
@@ -1766,7 +1768,7 @@ p {
 
 .seleccion__titulo {
   margin-bottom: 10px;
-  color: var(--oliva);
+  color: var(--oliva-texto);
   font-family: var(--fuente-marca);
   font-size: 1.2rem;
   font-weight: 400;
