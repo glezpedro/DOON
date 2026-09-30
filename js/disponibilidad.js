@@ -21,4 +21,5 @@ window.DOON.fechasOcupadas = [
   { desde: '2026-09-09', hasta: '2026-09-11' },
   { desde: '2026-09-19', hasta: '2026-09-20' },
   { desde: '2026-09-23', hasta: '2026-09-26' },
+  { desde: '2026-10-8', hasta: '2026-10-11' },
 ];
