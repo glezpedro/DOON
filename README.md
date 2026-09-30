@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="img/llama.png" alt="Logotipo de DOÓN: una llama con gorro de pescador" width="200">
-</p>
 
 <h1 align="center">DOÓN · Specialty Coffee</h1>
 
