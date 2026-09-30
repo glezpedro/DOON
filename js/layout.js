@@ -2,7 +2,7 @@
  * CABECERA Y PIE COMUNES
  * Se escriben una sola vez aquí y cada página los usa con:
  *   <doon-header pagina="stand"></doon-header>
- *   <doon-footer></doon-footer>
+ *   <doon-footer></doon-footer>   (en las páginas legales: <doon-footer pagina="cookies">)
  * Las rutas se calculan desde la ubicación de este script, así que funcionan
  * igual abriendo los archivos en local que publicados en un servidor.
  */
@@ -16,8 +16,8 @@
   const escapar = (texto) =>
     String(texto).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
-  const enlacesMenu = (actual, claseEnlace) =>
-    config.paginas
+  const enlacesMenu = (actual, claseEnlace, paginas = config.paginas) =>
+    paginas
       .map(({ id, texto, ruta }) => {
         const activo = id === actual ? ' aria-current="page"' : '';
         return `<li><a class="${claseEnlace}" href="${url(ruta)}"${activo}>${escapar(texto)}</a></li>`;
@@ -77,6 +77,7 @@
   class DoonFooter extends HTMLElement {
     connectedCallback() {
       const email = escapar(config.email);
+      const actual = this.getAttribute('pagina');
       this.innerHTML = `
         <footer class="pie">
           <div class="contenedor pie__rejilla">
@@ -98,6 +99,10 @@
                 <li>Stand itinerante · España</li>
               </ul>
             </div>
+            <nav aria-label="Información legal">
+              <h2 class="pie__titulo">Legal</h2>
+              <ul class="pie__lista">${enlacesMenu(actual, 'pie__enlace', config.legales)}</ul>
+            </nav>
           </div>
           <div class="contenedor pie__legal">
             <p>© ${new Date().getFullYear()} ${escapar(config.marca)} Specialty Coffee</p>

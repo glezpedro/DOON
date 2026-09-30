@@ -24,6 +24,13 @@ window.DOON.config = {
     { id: 'calendario', texto: 'Calendario', ruta: 'calendario/' },
   ],
 
+  // Páginas legales, enlazadas desde el pie.
+  legales: [
+    { id: 'terminos', texto: 'Términos y condiciones', ruta: 'terminos/' },
+    { id: 'privacidad', texto: 'Política de privacidad', ruta: 'privacidad/' },
+    { id: 'cookies', texto: 'Política de cookies', ruta: 'cookies/' },
+  ],
+
   // Botón destacado de la cabecera.
   llamada: { texto: 'Reservar fecha', ruta: 'calendario/#solicitud' },
 };

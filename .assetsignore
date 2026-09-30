@@ -2,3 +2,5 @@
 .github
 .assetsignore
 wrangler.jsonc
+README.md
+docs
