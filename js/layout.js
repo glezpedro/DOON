@@ -81,7 +81,7 @@
       this.innerHTML = `
         <footer class="pie">
           <div class="contenedor pie__rejilla">
-            <div>
+            <div class="pie__marca">
               <img class="pie__insignia" src="${url('img/icono-180.png')}" alt="" width="88" height="88">
               <p class="pie__nombre">${escapar(config.marca)}</p>
               <p class="pie__lema">Cool athletes drink coffee</p>
