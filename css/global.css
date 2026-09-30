@@ -15,11 +15,28 @@
     12. Cómo trabajamos (pasos y preguntas)
     13. Calendario
     14. Formulario
-    15. Adaptación a pantallas y movimiento reducido
+    15. Textos legales
+    16. Adaptación a pantallas y movimiento reducido
    ===================================================================== */
 
 /* 1. Fuentes y variables de marca ------------------------------------ */
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Bebas+Neue&display=swap");
+/* Fuentes alojadas en el propio dominio (licencia SIL OFL): la web no conecta con terceros */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 300 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("../fonts/archivo-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/bebas-neue-latin.woff2") format("woff2");
+}
 
 :root {
   color-scheme: light;
@@ -688,7 +705,7 @@ p {
 .pie__rejilla {
   display: grid;
   gap: 40px;
-  grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
 }
 
 .pie__insignia {
@@ -2057,7 +2074,52 @@ textarea.campo__control {
   margin-top: 24px;
 }
 
-/* 15. Adaptación a pantallas y movimiento reducido ---------------------- */
+.casilla a {
+  color: var(--marron);
+  font-weight: 600;
+}
+
+/* 15. Textos legales ----------------------------------------------------- */
+.texto-legal {
+  max-width: 72ch;
+}
+
+.texto-legal h2 {
+  margin: 48px 0 14px;
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  font-weight: 800;
+  font-stretch: 110%;
+  text-transform: uppercase;
+}
+
+.texto-legal h2:first-child {
+  margin-top: 0;
+}
+
+.texto-legal p,
+.texto-legal ul {
+  margin: 0 0 14px;
+}
+
+.texto-legal ul {
+  padding-left: 1.2em;
+}
+
+.texto-legal li + li {
+  margin-top: 6px;
+}
+
+.texto-legal a {
+  font-weight: 600;
+}
+
+.texto-legal__fecha {
+  margin-top: 40px;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* 16. Adaptación a pantallas y movimiento reducido ---------------------- */
 @media (max-width: 1080px) {
   .cabecera__menu {
     display: grid;
