@@ -43,23 +43,21 @@
               <h3 class="tarjeta__titulo">Estándar</h3>
               <span class="distintivo distintivo--crema">1 mesa</span>
             </header>
-            <figure class="plano">
-              <svg viewBox="0 0 450 300" role="img" aria-labelledby="plano-estandar">
-                <title id="plano-estandar">Esquema del montaje estándar: una mesa de 140 por 60 centímetros con máquina de espresso y un molino</title>
-                <rect class="plano__espacio" x="1" y="1" width="448" height="298" rx="10"/>
-                <rect class="plano__zona" x="14" y="14" width="422" height="124" rx="8"/>
-                <text class="plano__texto plano__texto--suave" x="225" y="40" text-anchor="middle">Zona de trabajo</text>
-                <rect class="plano__equipo plano__equipo--suave" x="40" y="68" width="74" height="46" rx="6"/>
-                <text class="plano__texto plano__texto--claro" x="77" y="95" text-anchor="middle">Nevera</text>
-                <rect class="plano__mesa" x="155" y="150" width="140" height="60" rx="4"/>
-                <rect class="plano__equipo" x="168" y="160" width="62" height="40" rx="4"/>
-                <text class="plano__texto plano__texto--claro" x="199" y="184" text-anchor="middle">Espresso</text>
-                <circle class="plano__equipo" cx="262" cy="180" r="19"/>
-                <text class="plano__texto plano__texto--claro" x="262" y="184" text-anchor="middle">Molino</text>
-                <text class="plano__texto" x="225" y="230" text-anchor="middle">Mesa 140 × 60 cm</text>
-                <path class="plano__flecha" d="M225 272 V246 M217 254 L225 246 L233 254"/>
-                <text class="plano__texto plano__texto--suave" x="225" y="290" text-anchor="middle">Zona de clientes</text>
-              </svg>
+            <figure class="plano" aria-label="Esquema del montaje estándar">
+              <div class="plano__espacio">
+                <div class="plano__trabajo">
+                  <span class="plano__rotulo">Zona de trabajo</span>
+                  <span class="plano__equipo plano__equipo--suave">Nevera</span>
+                </div>
+                <div class="plano__mesas">
+                  <div class="plano__mesa">
+                    <span class="plano__equipo">Espresso</span>
+                    <span class="plano__equipo plano__equipo--redondo">Molino</span>
+                  </div>
+                </div>
+                <p class="plano__rotulo">Mesa de 140 × 60 cm</p>
+                <p class="plano__rotulo"><span aria-hidden="true">↑</span> Zona de clientes</p>
+              </div>
               <figcaption class="plano__leyenda">Esquema orientativo dentro de un espacio de 4,5 × 3 m</figcaption>
             </figure>
             <dl class="lista-datos">
@@ -83,28 +81,25 @@
               <h3 class="tarjeta__titulo">Completo</h3>
               <span class="distintivo">2 mesas</span>
             </header>
-            <figure class="plano">
-              <svg viewBox="0 0 450 300" role="img" aria-labelledby="plano-completo">
-                <title id="plano-completo">Esquema del montaje completo: dos mesas de 140 por 60 centímetros con molino de descafeinado, máquina de espresso, molino y cafetera Moccamaster</title>
-                <rect class="plano__espacio" x="1" y="1" width="448" height="298" rx="10"/>
-                <rect class="plano__zona" x="14" y="14" width="422" height="124" rx="8"/>
-                <text class="plano__texto plano__texto--suave" x="225" y="40" text-anchor="middle">Zona de trabajo</text>
-                <rect class="plano__equipo plano__equipo--suave" x="40" y="68" width="74" height="46" rx="6"/>
-                <text class="plano__texto plano__texto--claro" x="77" y="95" text-anchor="middle">Nevera</text>
-                <rect class="plano__mesa" x="85" y="150" width="140" height="60" rx="4"/>
-                <rect class="plano__mesa" x="225" y="150" width="140" height="60" rx="4"/>
-                <circle class="plano__equipo plano__equipo--suave" cx="113" cy="180" r="19"/>
-                <text class="plano__texto plano__texto--claro" x="113" y="184" text-anchor="middle">Descaf.</text>
-                <rect class="plano__equipo" x="140" y="160" width="62" height="40" rx="4"/>
-                <text class="plano__texto plano__texto--claro" x="171" y="184" text-anchor="middle">Espresso</text>
-                <circle class="plano__equipo" cx="252" cy="180" r="19"/>
-                <text class="plano__texto plano__texto--claro" x="252" y="184" text-anchor="middle">Molino</text>
-                <rect class="plano__equipo" x="282" y="160" width="72" height="40" rx="4"/>
-                <text class="plano__texto plano__texto--claro" x="318" y="184" text-anchor="middle">Moccamaster</text>
-                <text class="plano__texto" x="225" y="230" text-anchor="middle">2 mesas de 140 × 60 cm</text>
-                <path class="plano__flecha" d="M225 272 V246 M217 254 L225 246 L233 254"/>
-                <text class="plano__texto plano__texto--suave" x="225" y="290" text-anchor="middle">Zona de clientes</text>
-              </svg>
+            <figure class="plano" aria-label="Esquema del montaje completo">
+              <div class="plano__espacio">
+                <div class="plano__trabajo">
+                  <span class="plano__rotulo">Zona de trabajo</span>
+                  <span class="plano__equipo plano__equipo--suave">Nevera</span>
+                </div>
+                <div class="plano__mesas">
+                  <div class="plano__mesa">
+                    <span class="plano__equipo plano__equipo--redondo plano__equipo--suave">Molino descafeinado</span>
+                    <span class="plano__equipo">Espresso</span>
+                  </div>
+                  <div class="plano__mesa">
+                    <span class="plano__equipo plano__equipo--redondo">Molino</span>
+                    <span class="plano__equipo">Moccamaster</span>
+                  </div>
+                </div>
+                <p class="plano__rotulo">2 mesas de 140 × 60 cm</p>
+                <p class="plano__rotulo"><span aria-hidden="true">↑</span> Zona de clientes</p>
+              </div>
               <figcaption class="plano__leyenda">Esquema orientativo dentro de un espacio de 4,5 × 3 m</figcaption>
             </figure>
             <dl class="lista-datos">
@@ -147,33 +142,33 @@
             <tbody>
               <tr>
                 <th scope="row">Máquina de espresso</th>
-                <td>Rocket Mozzafiato R Fast</td>
-                <td>Extracción de café espresso</td>
+                <td data-etiqueta="Marca y modelo">Rocket Mozzafiato R Fast</td>
+                <td data-etiqueta="Función">Extracción de café espresso</td>
               </tr>
               <tr>
                 <th scope="row">Molino de café</th>
-                <td>Compak i6 PRO</td>
-                <td>Molienda del grano al momento</td>
+                <td data-etiqueta="Marca y modelo">Compak i6 PRO</td>
+                <td data-etiqueta="Función">Molienda del grano al momento</td>
               </tr>
               <tr>
                 <th scope="row">Segundo molino</th>
-                <td>Compak Mini i3 PRO</td>
-                <td>Molienda del grano al momento <span class="tabla__secundario">Permite tener café normal y descafeinado por separado</span></td>
+                <td data-etiqueta="Marca y modelo">Compak Mini i3 PRO</td>
+                <td data-etiqueta="Función">Molienda del grano al momento <span class="tabla__secundario">Permite tener café normal y descafeinado por separado</span></td>
               </tr>
               <tr>
                 <th scope="row">Cafetera de filtro</th>
-                <td>Moccamaster KBGT</td>
-                <td>Café de filtro, también frío, en volumen</td>
+                <td data-etiqueta="Marca y modelo">Moccamaster KBGT</td>
+                <td data-etiqueta="Función">Café de filtro, también frío, en volumen</td>
               </tr>
               <tr>
                 <th scope="row">Hervidor de agua</th>
-                <td>Fellow</td>
-                <td>Agua caliente al momento</td>
+                <td data-etiqueta="Marca y modelo">Fellow</td>
+                <td data-etiqueta="Función">Agua caliente al momento</td>
               </tr>
               <tr>
                 <th scope="row">Nevera portátil</th>
-                <td>Yeti Tundra 105</td>
-                <td>Cadena de frío de la leche y las bebidas durante toda la jornada</td>
+                <td data-etiqueta="Marca y modelo">Yeti Tundra 105</td>
+                <td data-etiqueta="Función">Cadena de frío de la leche y las bebidas durante toda la jornada</td>
               </tr>
             </tbody>
           </table>
@@ -229,7 +224,7 @@
         <header class="encabezado">
           <span class="pastilla">04</span>
           <h2 id="titulo-seguridad" class="titular">Seguridad alimentaria</h2>
-          <p class="encabezado__texto entradilla">Trabajamos con los estándares que exige la normativa higiénico-sanitaria para el servicio de bebidas en espacios públicos.</p>
+          <p class="encabezado__texto entradilla">Trabajamos con los estándares que exige la normativa higiénico&#8209;sanitaria para el servicio de bebidas en espacios públicos.</p>
         </header>
 
         <div class="rejilla rejilla--3">
@@ -275,28 +270,28 @@
                 <tbody>
                   <tr>
                     <th scope="row">Lanzas de vapor</th>
-                    <td>Tras cada uso</td>
-                    <td>Purga de vapor y limpieza externa con paño húmedo exclusivo</td>
+                    <td data-etiqueta="Frecuencia">Tras cada uso</td>
+                    <td data-etiqueta="Procedimiento">Purga de vapor y limpieza externa con paño húmedo exclusivo</td>
                   </tr>
                   <tr>
                     <th scope="row">Superficies de trabajo</th>
-                    <td>Continua</td>
-                    <td>Desinfectante de superficies para evitar acumulaciones</td>
+                    <td data-etiqueta="Frecuencia">Continua</td>
+                    <td data-etiqueta="Procedimiento">Desinfectante de superficies para evitar acumulaciones</td>
                   </tr>
                   <tr>
                     <th scope="row">Grupos de la máquina</th>
-                    <td>Diaria, al cierre</td>
-                    <td>Limpieza con detergente específico según las instrucciones del fabricante</td>
+                    <td data-etiqueta="Frecuencia">Diaria, al cierre</td>
+                    <td data-etiqueta="Procedimiento">Limpieza con detergente específico según las instrucciones del fabricante</td>
                   </tr>
                   <tr>
                     <th scope="row">Tolva y molino</th>
-                    <td>Diaria, al cierre</td>
-                    <td>Limpieza en seco con papel o paño desechable para eliminar los aceites del grano</td>
+                    <td data-etiqueta="Frecuencia">Diaria, al cierre</td>
+                    <td data-etiqueta="Procedimiento">Limpieza en seco con papel o paño desechable para eliminar los aceites del grano</td>
                   </tr>
                   <tr>
                     <th scope="row">Nevera y recipientes</th>
-                    <td>Diaria, al cierre</td>
-                    <td>Desinfección interior</td>
+                    <td data-etiqueta="Frecuencia">Diaria, al cierre</td>
+                    <td data-etiqueta="Procedimiento">Desinfección interior</td>
                   </tr>
                 </tbody>
               </table>
