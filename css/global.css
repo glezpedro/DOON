@@ -765,32 +765,39 @@ p {
   padding-bottom: clamp(48px, 7vw, 96px);
 }
 
+/* Texto y llama en columnas separadas: el título nunca pasa por encima de la ilustración */
 .portada__bloque {
-  position: relative;
+  --relleno-portada: clamp(24px, 4.5vw, 64px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(16px, 3vw, 40px);
+  align-items: end;
   overflow: hidden;
-  min-height: clamp(420px, 50vw, 600px);
-  padding: clamp(28px, 4.5vw, 64px);
+  padding: var(--relleno-portada) var(--relleno-portada) 0;
   background: var(--azul);
 }
 
+.portada__texto {
+  align-self: center;
+  padding-bottom: var(--relleno-portada);
+}
+
+/* «ATHLETES» ≈ 6,1 em → 15 cqi */
 .portada__titulo {
-  position: relative;
-  z-index: 1;
-  max-width: 11ch;
+  font-size: clamp(2rem, 15cqi, 7.25rem);
 }
 
 .portada__llama {
-  position: absolute;
-  right: clamp(-40px, -2vw, 0px);
-  bottom: 0;
-  width: min(46%, 520px);
-  margin: 0;
+  justify-self: end;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 calc(-1 * var(--relleno-portada)) 0 0;
 }
 
 .portada__pie {
   display: grid;
   gap: 32px;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   align-items: end;
   margin-top: clamp(32px, 4vw, 48px);
 }
@@ -2014,15 +2021,16 @@ textarea.campo__control {
 
 @media (max-width: 860px) {
   .portada__bloque {
-    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .portada__texto {
     padding-bottom: 0;
   }
 
   .portada__llama {
-    position: relative;
-    right: auto;
     width: min(78%, 400px);
-    margin: 24px -8px 0 auto;
   }
 
   .portada__pie,
