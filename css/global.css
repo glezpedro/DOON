@@ -1243,7 +1243,7 @@ p {
 
 .plano__mesa {
   display: flex;
-  flex: 0 1 240px;
+  flex: 0 1 200px;
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
