@@ -1,1 +1,4 @@
-/  /web/Inicio/  301
+/          /Inicio/   301
+/inicio    /Inicio/   301
+/inicio/   /Inicio/   301
+/web/*     /:splat    301

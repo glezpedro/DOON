@@ -109,4 +109,16 @@
 
   customElements.define('doon-header', DoonHeader);
   customElements.define('doon-footer', DoonFooter);
+
+  // Los enlaces apuntan a carpetas (doon.es/carta/). Al abrir los archivos con doble clic
+  // el navegador no carga el index.html de una carpeta por sí solo, así que se añade aquí.
+  if (location.protocol === 'file:') {
+    document.querySelectorAll('a[href]').forEach((enlace) => {
+      const destino = new URL(enlace.href);
+      if (destino.protocol === 'file:' && destino.pathname.endsWith('/')) {
+        destino.pathname += 'index.html';
+        enlace.href = destino.href;
+      }
+    });
+  }
 })();
