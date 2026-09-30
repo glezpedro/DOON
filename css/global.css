@@ -164,6 +164,22 @@ doon-footer {
   margin-inline: auto;
 }
 
+/* Cajas que sirven de referencia (cqi) para el tamaño de los títulos que contienen */
+.contenedor,
+.dos-columnas > *,
+.cabecera-pagina__texto,
+.banda-llamada__texto,
+.solicitud > *,
+.portada__texto,
+.tarjeta,
+.carta__grupo,
+.montaje,
+.paso > div,
+.calendario,
+.confirmacion {
+  container-type: inline-size;
+}
+
 .seccion {
   padding-block: var(--espacio-seccion);
 }
@@ -242,20 +258,26 @@ p {
   text-wrap: pretty;
 }
 
+/*
+ * Los títulos se dimensionan con el ancho de su propia caja (unidades cqi), no con el de la
+ * ventana. Cada coeficiente se calcula para que la palabra más larga de ese tipo de título
+ * quepa entera: nunca se parte una palabra ni se sale texto de su caja.
+ *   .titular      → «ACOMPAÑAMIENTOS» ≈ 12,5 em  → 7,5 cqi
+ *   .titular--xl  → «TRABAJAMOS»      ≈ 8,5 em   → 11 cqi
+ */
 .titular {
-  font-size: clamp(1.75rem, 5vw, 3.75rem);
-  overflow-wrap: break-word;
-  hyphens: auto;
+  font-size: clamp(1.35rem, 7.5cqi, 3.75rem);
   font-weight: 800;
   font-stretch: 112%;
   letter-spacing: -0.01em;
-  line-height: 1;
+  line-height: 1.02;
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 .titular--xl {
-  font-size: clamp(2.6rem, 8.2vw, 7.25rem);
-  line-height: 0.92;
+  font-size: clamp(2rem, 11cqi, 7.25rem);
+  line-height: 0.95;
 }
 
 .resalte {
@@ -313,11 +335,20 @@ p {
   margin-bottom: clamp(32px, 4vw, 56px);
 }
 
+/* La línea ocupa solo el hueco que deja el título en su fila: nunca baja sola a otra fila */
 .encabezado::after {
   content: "";
-  flex: 1 1 120px;
+  flex: 1 1 0;
+  min-width: 0;
   border-top: 1px solid currentColor;
   opacity: 0.6;
+}
+
+/* En cajas estrechas la línea decorativa quedaría sola en una fila: se oculta */
+@container (max-width: 700px) {
+  .encabezado::after {
+    display: none;
+  }
 }
 
 .encabezado--solo {
@@ -336,10 +367,12 @@ p {
   margin-top: 0;
 }
 
-.encabezado__texto {
+/* Ocupa siempre una fila entera; el ancho de lectura (62 caracteres) se limita con el relleno */
+.encabezado > .encabezado__texto {
   flex-basis: 100%;
   order: 3;
-  max-width: 62ch;
+  max-width: none;
+  padding-right: max(0px, 100% - 62ch);
 }
 
 .pastilla {
@@ -471,7 +504,7 @@ p {
   border-radius: var(--radio-pastilla);
   background: var(--azul);
   color: var(--tinta);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 1.5;
@@ -890,8 +923,9 @@ p {
   color: var(--azul);
 }
 
+/* «ACOMPAÑAMIENTOS» ≈ 12,1 em → 7,5 cqi de la tarjeta */
 .tarjeta__titulo {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 7.5cqi, 1.5rem);
   font-weight: 800;
   font-stretch: 110%;
   text-transform: uppercase;
@@ -1051,16 +1085,18 @@ p {
 
 .carta__cabecera {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
+  gap: 4px 12px;
   margin-bottom: 8px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--linea);
 }
 
+/* «CALIENTES» ≈ 6,8 em → 13 cqi */
 .carta__titulo {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.4rem, 13cqi, 2.2rem);
   font-weight: 800;
   font-stretch: 115%;
   text-transform: uppercase;
@@ -1079,10 +1115,13 @@ p {
   list-style: none;
 }
 
+/* Nombre y distintivo comparten línea si caben; si no, el distintivo baja debajo */
 .producto {
-  display: grid;
-  gap: 4px 16px;
-  grid-template-columns: minmax(0, 1fr) auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 16px;
   padding-block: 18px;
   border-bottom: 1px dashed var(--linea-suave);
 }
@@ -1100,13 +1139,9 @@ p {
 }
 
 .producto__descripcion {
-  grid-column: 1 / -1;
+  flex-basis: 100%;
   color: var(--texto-suave);
-  font-size: 0.98rem;
-}
-
-.producto .distintivo {
-  align-self: center;
+  font-size: 1rem;
 }
 
 /* 11. Stand: plano y tablas ------------------------------------------- */
@@ -1356,9 +1391,10 @@ p {
   line-height: 0.9;
 }
 
+/* «CONFIRMAMOS» ≈ 9 em → 10 cqi */
 .paso__titulo {
   margin-bottom: 6px;
-  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-size: clamp(1.05rem, 10cqi, 1.45rem);
   font-weight: 800;
   font-stretch: 110%;
   text-transform: uppercase;
@@ -1441,8 +1477,10 @@ p {
   margin-bottom: 20px;
 }
 
+/* «SEPTIEMBRE» ≈ 7,9 em, con los dos botones de flecha (≈ 120 px) a los lados */
 .calendario__mes {
-  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-size: clamp(1.05rem, (100cqi - 120px) / 8.4, 2rem);
+  text-align: center;
   font-weight: 800;
   font-stretch: 115%;
   text-transform: uppercase;
@@ -1913,9 +1951,10 @@ textarea.campo__control {
   outline: none;
 }
 
+/* «¡SOLICITUD PREPARADA!» ≈ 7,6 em por palabra → 12 cqi */
 .confirmacion__titulo {
   margin-bottom: 10px;
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.3rem, 12cqi, 2rem);
   font-weight: 800;
   font-stretch: 112%;
   text-transform: uppercase;
@@ -2021,8 +2060,14 @@ textarea.campo__control {
     font-size: 1rem;
   }
 
+  /* Con anchura de letra normal la palabra más larga ocupa menos: el título puede crecer */
   .titular {
     font-stretch: 100%;
+    font-size: clamp(1.35rem, 8.4cqi, 3.75rem);
+  }
+
+  .titular--xl {
+    font-size: clamp(2rem, 12cqi, 7.25rem);
   }
 
   .marca__insignia {
