@@ -78,6 +78,8 @@
     connectedCallback() {
       const email = escapar(config.email);
       const actual = this.getAttribute('pagina');
+      const { instagram } = config.enlaces;
+      const usuarioInstagram = instagram ? new URL(instagram).pathname.split('/').filter(Boolean)[0] : '';
       this.innerHTML = `
         <footer class="pie">
           <div class="contenedor pie__rejilla">
@@ -95,6 +97,7 @@
               <h2 class="pie__titulo">Contacto</h2>
               <ul class="pie__lista">
                 <li><a class="pie__enlace" href="mailto:${email}">${email}</a></li>
+                ${instagram ? `<li><a class="pie__enlace" href="${escapar(instagram)}">Instagram · @${escapar(usuarioInstagram)}</a></li>` : ''}
                 <li><a class="pie__enlace" href="${url(config.llamada.ruta)}">Solicitar reserva o información</a></li>
                 <li>Stand itinerante · España</li>
               </ul>

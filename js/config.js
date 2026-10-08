@@ -15,6 +15,12 @@ window.DOON.config = {
   // Si se deja vacío, al enviar el formulario se abre el correo del cliente con la solicitud ya redactada.
   formEndpoint: '',
 
+  // Redes y enlaces externos (página /nfc y pie). Si uno está vacío, su botón no aparece.
+  enlaces: {
+    instagram: 'https://www.instagram.com/dooncoffeeco/',
+    resenaGoogle: '', // ← pegar aquí el enlace «g.page/r/…/review» cuando Google apruebe el perfil
+  },
+
   // Menú principal. "ruta" es relativa a la raíz del proyecto (doon.es/inicio/, doon.es/carta/…).
   paginas: [
     { id: 'inicio', texto: 'Inicio', ruta: 'inicio/' },

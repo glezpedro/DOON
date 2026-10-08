@@ -23,6 +23,7 @@ Una web estática, rápida y sin dependencias para presentar el stand, su carta 
 | [Cómo trabajamos](https://doon.es/como-trabajamos/) | Modalidades de servicio, proceso de reserva y preguntas frecuentes |
 | [Calendario](https://doon.es/calendario/) | Disponibilidad del stand y formulario de reserva o información |
 | [Términos](https://doon.es/terminos/) · [Privacidad](https://doon.es/privacidad/) · [Cookies](https://doon.es/cookies/) | Textos legales |
+| [Enlaces (NFC)](https://doon.es/nfc/) | Página de la tarjeta NFC del stand: reseña en Google, Instagram, reservas y carta. No aparece en el menú ni en Google |
 
 ### Calendario de disponibilidad
 
@@ -56,6 +57,8 @@ Cada cambio que se sube a la rama `main` se publica solo en doon.es en aproximad
 
 Se puede hacer desde la propia web de GitHub (icono del lápiz → *Commit changes*), también desde el móvil. Ese archivo es público: solo fechas, nunca nombres de eventos ni de clientes.
 
+**Tarjeta NFC y redes:** los enlaces de Instagram y de la reseña de Google están en `enlaces` dentro de [`js/config.js`](js/config.js). Si uno está vacío, su botón no aparece en [doon.es/nfc](https://doon.es/nfc/). La tarjeta debe grabarse con `https://doon.es/nfc/` (nunca con el enlace de Google directamente), así su destino se puede cambiar sin volver a grabarla.
+
 **Correo de contacto y formulario:** en [`js/config.js`](js/config.js). Si se rellena `formEndpoint` con la dirección de un servicio de formularios, las solicitudes se envían directamente; si se deja vacío, el formulario abre el correo del visitante con la solicitud ya redactada.
 
 ## Verla en local
@@ -73,11 +76,13 @@ y abrir `http://localhost:8000`.
 ```
 ├── inicio/  carta/  stand/  como-trabajamos/  calendario/   páginas (doon.es/carta/…)
 ├── terminos/  privacidad/  cookies/                         textos legales
+├── nfc/                  página de enlaces de la tarjeta NFC
 ├── css/global.css        hoja de estilos única
 ├── js/config.js          marca, correo, menú y páginas legales
 ├── js/disponibilidad.js  fechas ocupadas
 ├── js/layout.js          cabecera y pie comunes (<doon-header>, <doon-footer>)
 ├── js/calendario.js      calendario y formulario
+├── js/nfc.js            botones de la página NFC
 ├── img/  fonts/          logotipo, iconos y tipografías
 ├── _redirects            doon.es → /inicio/ y direcciones antiguas
 ├── robots.txt  sitemap.xml

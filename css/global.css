@@ -16,7 +16,8 @@
     13. Calendario
     14. Formulario
     15. Textos legales
-    16. Adaptación a pantallas y movimiento reducido
+    16. Página de enlaces de la tarjeta NFC
+    17. Adaptación a pantallas y movimiento reducido
    ===================================================================== */
 
 /* 1. Fuentes y variables de marca ------------------------------------ */
@@ -2180,7 +2181,136 @@ textarea.campo__control {
   font-size: 0.95rem;
 }
 
-/* 16. Adaptación a pantallas y movimiento reducido ---------------------- */
+/* 16. Página de enlaces de la tarjeta NFC -------------------------------- */
+.nfc {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(20px, 5vw, 48px) var(--margen);
+  background: var(--azul);
+}
+
+.nfc__tarjeta {
+  width: min(100%, 440px);
+  padding: clamp(28px, 7vw, 44px) clamp(18px, 6vw, 36px);
+  border-radius: var(--radio);
+  background: var(--papel);
+  box-shadow: var(--sombra);
+  text-align: center;
+}
+
+.nfc__llama {
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 16px;
+  padding: 6px 6px 0;
+  border: 1px solid var(--linea-suave);
+  border-radius: 50%;
+  background: var(--crema-suave);
+}
+
+.nfc__nombre {
+  color: var(--marron);
+  font-family: var(--fuente-marca);
+  font-size: 3.4rem;
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.nfc__lema {
+  color: var(--oliva-texto);
+  font-family: var(--fuente-marca);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+}
+
+.nfc__texto {
+  margin: 18px 0 24px;
+  color: var(--texto);
+}
+
+.nfc__enlaces {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nfc__boton {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 60px;
+  padding: 12px 18px;
+  border: 1.5px solid var(--marron);
+  border-radius: 16px;
+  background: var(--blanco);
+  color: var(--tinta);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: none;
+  transition: background-color var(--transicion), transform var(--transicion);
+}
+
+.nfc__boton:hover {
+  background: var(--crema);
+  color: var(--tinta);
+}
+
+.nfc__boton:active {
+  transform: translateY(1px);
+}
+
+.nfc__boton--destacado {
+  min-height: 68px;
+  background: var(--marron);
+  color: var(--crema);
+  font-size: 1.1rem;
+}
+
+.nfc__boton--destacado:hover {
+  background: var(--marron-oscuro);
+  color: var(--blanco);
+}
+
+.nfc__icono {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.nfc__boton-texto {
+  display: grid;
+  gap: 2px;
+}
+
+.nfc__detalle {
+  color: var(--texto-suave);
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+.nfc__boton--destacado .nfc__detalle {
+  color: var(--crema);
+}
+
+.nfc__pie {
+  margin-top: 26px;
+  color: var(--oliva-texto);
+  font-family: var(--fuente-marca);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+}
+
+/* 17. Adaptación a pantallas y movimiento reducido ---------------------- */
 @media (max-width: 1080px) {
   .cabecera__menu {
     display: grid;
