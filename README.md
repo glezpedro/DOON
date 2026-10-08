@@ -17,7 +17,7 @@ Una web estática, rápida y sin dependencias para presentar el stand, su carta 
 
 | Página | Qué contiene |
 |---|---|
-| [Inicio](https://doon.es/Inicio/) | Presentación, qué ofrecemos, tipos de evento, experiencia y testimonio |
+| [Inicio](https://doon.es/inicio/) | Presentación, qué ofrecemos, tipos de evento, experiencia y testimonio |
 | [Carta](https://doon.es/carta/) | Cafés calientes y fríos, leche o avena, descafeinado, acompañamientos y marcas deportivas |
 | [El stand](https://doon.es/stand/) | Montaje estándar y completo, equipo profesional, qué necesitamos y seguridad alimentaria |
 | [Cómo trabajamos](https://doon.es/como-trabajamos/) | Modalidades de servicio, proceso de reserva y preguntas frecuentes |
@@ -71,7 +71,7 @@ y abrir `http://localhost:8000`.
 ## Estructura
 
 ```
-├── Inicio/  carta/  stand/  como-trabajamos/  calendario/   páginas (doon.es/carta/…)
+├── inicio/  carta/  stand/  como-trabajamos/  calendario/   páginas (doon.es/carta/…)
 ├── terminos/  privacidad/  cookies/                         textos legales
 ├── css/global.css        hoja de estilos única
 ├── js/config.js          marca, correo, menú y páginas legales
@@ -79,7 +79,7 @@ y abrir `http://localhost:8000`.
 ├── js/layout.js          cabecera y pie comunes (<doon-header>, <doon-footer>)
 ├── js/calendario.js      calendario y formulario
 ├── img/  fonts/          logotipo, iconos y tipografías
-├── _redirects            doon.es → /Inicio/ y direcciones antiguas
+├── _redirects            doon.es → /inicio/ y direcciones antiguas
 ├── robots.txt  sitemap.xml
 └── wrangler.jsonc        despliegue en Cloudflare
 ```

@@ -15,9 +15,9 @@ window.DOON.config = {
   // Si se deja vacío, al enviar el formulario se abre el correo del cliente con la solicitud ya redactada.
   formEndpoint: '',
 
-  // Menú principal. "ruta" es relativa a la raíz del proyecto (doon.es/Inicio/, doon.es/carta/…).
+  // Menú principal. "ruta" es relativa a la raíz del proyecto (doon.es/inicio/, doon.es/carta/…).
   paginas: [
-    { id: 'inicio', texto: 'Inicio', ruta: 'Inicio/' },
+    { id: 'inicio', texto: 'Inicio', ruta: 'inicio/' },
     { id: 'carta', texto: 'Carta', ruta: 'carta/' },
     { id: 'stand', texto: 'El stand', ruta: 'stand/' },
     { id: 'como-trabajamos', texto: 'Cómo trabajamos', ruta: 'como-trabajamos/' },
